@@ -5,11 +5,12 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 from . import config
-from .cards import FUNDO, LINHA, TINTA, TINTA_2, _hex, _quebrar, fonte
+from .cards import A, FUNDO, LINHA, TINTA, TINTA_2, _hex, _quebrar, fonte
 
 ROXO = _hex(config.PILARES["executivo"]["cor"])
 CORES = [_hex(config.PILARES[p]["cor"]) for p in ("executivo", "senado", "camara")]
 SAIDA = config.RAIZ / "instagram"
+DY = (A - 1350) // 2  # desloca o miolo dos slides, desenhados para 1350, para centralizar em 3:4
 
 
 def triangulo(d: ImageDraw.ImageDraw, cx: int, cy: int, raio: int, destaque: int | None = None,
@@ -51,7 +52,7 @@ def destaques() -> list[Path]:
 
 
 def _slide(n: int, total: int, titulo: str, assinatura: str) -> tuple[Image.Image, ImageDraw.ImageDraw, int]:
-    img = Image.new("RGB", (1080, 1350), FUNDO)
+    img = Image.new("RGB", (1080, A), FUNDO)
     d = ImageDraw.Draw(img)
     d.rectangle((0, 0, 1080, 14), fill=ROXO)
     triangulo(d, 100, 92, 34)
@@ -61,9 +62,9 @@ def _slide(n: int, total: int, titulo: str, assinatura: str) -> tuple[Image.Imag
     for ln in _quebrar(d, titulo, fonte(68, True), 952, 3):
         d.text((64, y), ln, font=fonte(68, True), fill=TINTA)
         y += 80
-    d.line((64, 1250, 1016, 1250), fill=LINHA, width=3)
-    d.text((64, 1272), assinatura, font=fonte(28, True), fill=TINTA_2)
-    d.text((1016, 1272), "apartidário · com fontes", font=fonte(26), fill=TINTA_2, anchor="ra")
+    d.line((64, A - 100, 1016, A - 100), fill=LINHA, width=3)
+    d.text((64, A - 78), assinatura, font=fonte(28, True), fill=TINTA_2)
+    d.text((1016, A - 78), "apartidário · com fontes", font=fonte(26), fill=TINTA_2, anchor="ra")
     return img, d, y + 40
 
 
@@ -91,8 +92,8 @@ def carrossel_lancamento(assinatura: str, data_2t: str, disputas: list[str]) -> 
 
     img, d, y = _slide(1, total, "Quem vai decidir o futuro do país?", assinatura)
     _texto(d, y, "Conheça o Meu Representante: um dossiê aberto e apartidário sobre candidatos e eleitos de 2026.", 40, TINTA_2)
-    triangulo(d, 540, 900, 210)
-    d.text((1016, 1200), "arraste →", font=fonte(32, True), fill=ROXO, anchor="ra")
+    triangulo(d, 540, 900 + DY, 210)
+    d.text((1016, 1200 + 2 * DY), "arraste →", font=fonte(32, True), fill=ROXO, anchor="ra")
     saidas.append(_salvar(img, "lancamento/01-capa.png"))
 
     img, d, y = _slide(2, total, "Tudo sobre quem nos representa, num só lugar", assinatura)
@@ -105,14 +106,14 @@ def carrossel_lancamento(assinatura: str, data_2t: str, disputas: list[str]) -> 
     saidas.append(_salvar(img, "lancamento/02-o-que-e.png"))
 
     img, d, y = _slide(3, total, "Três pilares decidem as leis e as políticas públicas", assinatura)
-    triangulo(d, 540, 860, 220)
-    d.text((540, 450), "Executivo", font=fonte(40, True), fill=TINTA, anchor="ma")
-    d.text((540, 498), "Presidência e governos estaduais", font=fonte(28), fill=TINTA_2, anchor="ma")
+    triangulo(d, 540, 860 + DY, 220)
+    d.text((540, 450 + DY), "Executivo", font=fonte(40, True), fill=TINTA, anchor="ma")
+    d.text((540, 498 + DY), "Presidência e governos estaduais", font=fonte(28), fill=TINTA_2, anchor="ma")
     for x, nome, desc, anc in [(64, "Senado", "Senadores dos 27 estados", "la"),
                                (1016, "Câmaras", "Deputados federais e estaduais", "ra")]:
-        d.text((x, 1068), nome, font=fonte(40, True), fill=TINTA, anchor=anc)
-        d.text((x, 1116), desc, font=fonte(28), fill=TINTA_2, anchor=anc)
-    _texto(d, 1180, "Navegue por pilar, por estado ou pelo nome do candidato.", 32, TINTA_2)
+        d.text((x, 1068 + DY), nome, font=fonte(40, True), fill=TINTA, anchor=anc)
+        d.text((x, 1116 + DY), desc, font=fonte(28), fill=TINTA_2, anchor=anc)
+    _texto(d, 1180 + 2 * DY, "Navegue por pilar, por estado ou pelo nome do candidato.", 32, TINTA_2)
     saidas.append(_salvar(img, "lancamento/03-tres-pilares.png"))
 
     img, d, y = _slide(4, total, "Como garantimos a confiança", assinatura)
@@ -142,8 +143,8 @@ def carrossel_lancamento(assinatura: str, data_2t: str, disputas: list[str]) -> 
         ("É da área jurídica ou do jornalismo?", "Seja revisor(a) e ajude a conferir os dossiês."),
         ("Viu algo errado?", "Peça correção: candidatos e assessorias também podem pedir."),
     ])
-    d.rounded_rectangle((64, 1060, 1016, 1180), 24, fill=ROXO)
-    d.text((540, 1120), "Link na bio · compartilhe", font=fonte(44, True), fill="white", anchor="mm")
+    d.rounded_rectangle((64, 1060 + 2 * DY, 1016, 1180 + 2 * DY), 24, fill=ROXO)
+    d.text((540, 1120 + 2 * DY), "Link na bio · compartilhe", font=fonte(44, True), fill="white", anchor="mm")
     saidas.append(_salvar(img, "lancamento/06-colabore.png"))
     return saidas
 

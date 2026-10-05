@@ -49,7 +49,7 @@ python MeuRepresentante.py validar                  # confere as regras editoria
 python MeuRepresentante.py verificar-links          # confere se as fontes respondem
 python MeuRepresentante.py relatorio                # PDF para revisão jurídica (não publicar)
 python MeuRepresentante.py instagram                # kit do Instagram (ver docs/INSTAGRAM.md)
-python MeuRepresentante.py cards --uf SP            # gera imagens 1080x1350 para Instagram em ./cards
+python MeuRepresentante.py cards --uf SP            # gera imagens 1080x1440 (3:4) para Instagram em ./cards
 python MeuRepresentante.py cards --cargo PRESIDENTE --todos
 python MeuRepresentante.py cards --segundo-turno         # um card "A x B" por disputa de 2º turno
 python MeuRepresentante.py cards --resultado segundo_turno --todos --site-url meurepresentante.org

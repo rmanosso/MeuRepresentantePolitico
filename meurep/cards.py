@@ -1,4 +1,4 @@
-"""Gera cards (PNG 1080x1350, formato retrato do Instagram) a partir dos dados do site."""
+"""Gera cards (PNG 1080x1440, formato 3:4 da grade do Instagram) a partir dos dados do site."""
 import io
 from pathlib import Path
 
@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from . import config
 
-L, A = 1080, 1350
+L, A = 1080, 1440  # 3:4: aparece inteiro na grade do perfil e no feed
 MARGEM = 64
 FUNDO = (250, 249, 246)
 TINTA = (28, 27, 34)
@@ -152,7 +152,7 @@ def card(c: dict, destino: Path, site_url: str = "") -> Path:
     if dossie:
         # A conduta sempre aparece: o espaço das outras seções é limitado para garantir isso.
         if dossie["propostas"]:
-            y = _bloco(d, y, "PROPOSTAS", [p["resumo"] for p in dossie["propostas"]], cor, max_itens=2)
+            y = _bloco(d, y, "PROPOSTAS", [p["resumo"] for p in dossie["propostas"]], cor, max_itens=3)
         if dossie["trajetoria"]:
             y = _bloco(d, y, "TRAJETÓRIA",
                        [f"{t['ano']}: {t['titulo']}" if t.get("ano") else t["titulo"] for t in dossie["trajetoria"]],
@@ -249,18 +249,16 @@ def card_comparacao(a: dict, b: dict, destino: Path, site_url: str = "", data_2t
     if comuns:
         f = fonte(24)
         for tema in comuns:
-            if y > A - 260:
+            cabem = min(5, (A - 140 - y - 36) // 31)  # o último tema encolhe para caber antes do rodapé
+            if cabem < 3:
                 break
+            linhas = [_quebrar(d, props[i][tema][0], f, col, cabem) for i in range(2)]
             d.text((L // 2, y), tema.upper(), font=fonte(24, True), fill=cor, anchor="ma")
             y += 36
-            alturas = []
-            for i, x in enumerate(xs):
-                yy = y
-                for ln in _quebrar(d, props[i][tema][0], f, col, 5):
-                    d.text((x, yy), ln, font=f, fill=TINTA)
-                    yy += 31
-                alturas.append(yy)
-            y = max(alturas) + 22
+            for x, lns in zip(xs, linhas):
+                for j, ln in enumerate(lns):
+                    d.text((x, y + 31 * j), ln, font=f, fill=TINTA)
+            y += 31 * max(map(len, linhas)) + 22
     else:
         texto = "Dossiês em construção. Veja no site a ficha oficial, o patrimônio declarado e as fontes."
         for ln in _quebrar(d, texto, fonte(30), L - 2 * MARGEM, 3):
