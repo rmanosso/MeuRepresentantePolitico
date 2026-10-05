@@ -5,15 +5,15 @@ Os cards de candidatos saem de `cards --segundo-turno` e `cards --id ...`, na pa
 
 ## 1. Configuração do perfil
 
-| Campo | O que colocar |
-|---|---|
-| **Tipo de conta** | Profissional, categoria **Comunidade** (ou *Organização sem fins lucrativos*, se o projeto for formalizado). Libera estatísticas. |
-| **Foto** | `instagram/perfil.png`, o triângulo dos três pilares. Funciona bem recortada em círculo. |
-| **Usuário** | `@meurepresentantepolitico` |
-| **Nome** (aparece na busca) | `Meu Representante Político \| Eleições 2026` |
-| **Bio** | Escolha uma das opções abaixo (todas têm até 150 caracteres). |
-| **Link** | Endereço do site assim que publicado no GitHub Pages. Enquanto isso, o link do repositório. |
-| **Contato** | Um e-mail do projeto, não o pessoal (ex.: meurepresentantepolitico@gmail.com). |
+| Campo                       | O que colocar                                                                                                                     |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Tipo de conta**           | Profissional, categoria **Comunidade** (ou *Organização sem fins lucrativos*, se o projeto for formalizado). Libera estatísticas. |
+| **Foto**                    | `instagram/perfil.png`, o triângulo dos três pilares. Funciona bem recortada em círculo.                                          |
+| **Usuário**                 | `@meurepresentantepolitico`                                                                                                       |
+| **Nome** (aparece na busca) | `Meu Representante Político \| Eleições 2026`                                                                                     |
+| **Bio**                     | Escolha uma das opções abaixo (todas têm até 150 caracteres).                                                                     |
+| **Link**                    | Endereço do site assim que publicado no GitHub Pages. Enquanto isso, o link do repositório.                                       |
+| **Contato**                 | Um e-mail do projeto, não o pessoal (ex.: projetomeurepresentante@gmail.com).                                                     |
 
 **Endereços alinhados:** Instagram `@meurepresentantepolitico`, repositório `MeuRepresentantePolitico` no GitHub e, se possível, o domínio `meurepresentantepolitico.com.br`. O nome da marca continua "Meu Representante".
 

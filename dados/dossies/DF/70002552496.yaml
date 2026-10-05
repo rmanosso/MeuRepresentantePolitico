@@ -1,0 +1,86 @@
+# Leandro Grass (Leandro Antônio Grass Peixoto) — GOVERNADOR / DF — PT
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_DF.zip)
+id: '70002552496'
+atualizado_em: '2026-10-05'
+resumo: Sociólogo e professor, foi deputado distrital e presidente do Iphan.
+propostas:
+- tema: Saúde
+  resumo: Consulta com especialista e exame em até 30 dias ao fim do mandato, cobertura total da Saúde da Família
+    e mutirão permanente com fila única e painel público nos primeiros 100 dias.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 13 e 33)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Educação
+  resumo: Zerar a fila da creche, ampliar a educação em tempo integral começando pelas periferias e cumprir o piso
+    do magistério, inclusive para temporários.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 13 e 60)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Infraestrutura
+  resumo: Tarifa zero no transporte de forma progressiva, ônibus após as 22h, compra de novos trens para o metrô
+    e início da rede planejada de metrô, VLT e BRT.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 12 e 76)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Assistência social
+  resumo: 'Programa DF Mais Barato: restaurantes comunitários com refeição a R$ 1, farmácias populares e feiras
+    da agricultura familiar.'
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 12)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Moradia
+  resumo: Atacar o déficit de 100 mil moradias pela locação social, produção habitacional bem localizada e regularização
+    com prazo.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 13)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Economia e impostos
+  resumo: Resgatar o BRB com gestão técnica e transparência sobre as perdas, revisar privilégios fiscais e criar
+    o Desenrola DF de renegociação de dívidas.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 13 e 19)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Segurança pública
+  resumo: Plano de enfrentamento ao feminicídio em 30 dias, com Viva Flor e Patrulha Maria da Penha em todas as
+    regiões, e asfixia financeira das facções.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 114)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+- tema: Instituições e democracia
+  resumo: Conselhos comunitários em cada região administrativa, orçamento participativo e administrador regional
+    indicado pela cidade.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 14)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_DF.zip
+trajetoria:
+- ano: 2023
+  titulo: Presidente do Iphan (2023–2026)
+  resumo: Comandou o Instituto do Patrimônio Histórico e Artístico Nacional.
+  fontes:
+  - titulo: Galeria de presidentes do Iphan — gov.br
+    url: https://www.gov.br/iphan/pt-br/acesso-a-informacao/institucional/galeria-de-presidentes
+- ano: 2019
+  titulo: Deputado distrital (2019–2022)
+  resumo: Eleito em 2018.
+  fontes:
+  - titulo: Leandro Grass — Câmara Legislativa do DF
+    url: https://www.cl.df.gov.br/pt/leandro-grass-2019-2022
+conduta:
+- tipo: eleitoral
+  situacao: absolvido
+  status: confirmado
+  titulo: Inelegibilidade por abuso na campanha de 2022, revertida pelo TSE
+  data: '2024-05-14'
+  resumo: Em 2024 o TRE-DF, por 4 a 2, declarou Grass inelegível por oito anos, entendendo que houve divulgação
+    de informações falsas sobre Ibaneis Rocha na campanha de 2022. Em maio de 2024 o TSE acolheu o recurso, concluiu
+    que não houve abuso dos meios de comunicação e afastou a inelegibilidade.
+  resposta: Afirmou que a campanha respeitou as regras eleitorais.
+  fontes:
+  - titulo: TSE derruba decisão que tornou Leandro Grass inelegível
+    url: https://www.brasildefato.com.br/2024/05/15/tse-derruba-decisao-que-tornou-leandro-grass-inelegivel/
+    veiculo: Brasil de Fato
+    data: '2024-05-15'
+  - titulo: Grass fica inelegível durante 8 anos no DF
+    url: https://diariodopoder.com.br/brasil-e-regioes/distrito-federal/xwk-distrito-federal/grass-fica-inelegivel-durante-8-anos-no-df-por-mentir-muito-na-campanha-de-2022
+    veiculo: Diário do Poder
+links: []

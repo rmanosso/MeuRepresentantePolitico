@@ -17,3 +17,6 @@ Thumbs.db
 dados/privado/
 revisao/
 instagram/
+
+# configurações pessoais de editores
+.obsidian/

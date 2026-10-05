@@ -1,0 +1,59 @@
+# Allyson (Allyson Leandro Bezerra Silva) — GOVERNADOR / RN — UNIÃO
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_RN.zip)
+id: '200002535255'
+atualizado_em: '2026-10-05'
+resumo: Foi deputado estadual e prefeito de Mossoró por dois mandatos.
+propostas:
+- tema: Saúde
+  resumo: Programa permanente de cirurgias eletivas, leitos regionais de UTI pediátrica e requalificação do Hospital
+    Walfredo Gurgel.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 15)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+- tema: Educação
+  resumo: Kit de material escolar e fardamento novo (com tênis, mochila e moletom) para alunos da rede estadual,
+    programa Escola Renovada e Pacto Potiguar pela Aprendizagem com os municípios.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 18)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+- tema: Segurança pública
+  resumo: Videomonitoramento, reconhecimento facial e drones com supervisão humana, e combate ao crime organizado
+    com investigação patrimonial e recuperação de ativos.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 22)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+- tema: Economia e impostos
+  resumo: Mutirão técnico do Idema para reduzir prazos ambientais e preparar áreas, energia e fibra para atrair
+    data centers (RN Hub de Tecnologia e IA).
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 12)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+- tema: Infraestrutura
+  resumo: Construir a terceira ponte sobre o Rio Potengi em Natal, duplicar a RN-003 até a Praia da Pipa e modernizar
+    o Porto de Natal.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 25)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+- tema: Mulheres
+  resumo: Programa RN por Elas, integrando proteção, saúde, renda e empreendedorismo para mulheres.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 37)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+- tema: Gestão pública
+  resumo: Pactos com os 167 municípios, com metas, fontes de recursos e prestação de contas.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 9)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RN.zip
+trajetoria:
+- ano: 2021
+  titulo: Prefeito de Mossoró (2021–2026)
+  resumo: Eleito em 2020 e reeleito em 2024 com 78% dos votos válidos; deixou o cargo em 2026 para disputar o governo.
+  fontes:
+  - titulo: Quem é Allyson Bezerra, prefeito de Mossoró
+    url: https://www.infomoney.com.br/?p=3189319
+    veiculo: InfoMoney
+  - titulo: Allyson Bezerra é visto como forte candidato ao governo do RN em 2026
+    url: https://agorarn.com.br/ultimas/allyson-bezerra-e-visto-como-forte-candidato-ao-governo-do-rn-em-2026/
+    veiculo: Agora RN
+conduta: []
+links: []

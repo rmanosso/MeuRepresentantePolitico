@@ -1,0 +1,103 @@
+# Professora Dorinha (Maria Auxiliadora Seabra Rezende) — GOVERNADOR / TO — UNIÃO
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_TO.zip)
+id: '270002544599'
+atualizado_em: '2026-10-05'
+resumo: Professora, foi secretária de Educação do Tocantins, deputada federal por três mandatos e é senadora desde
+  2023.
+propostas:
+- tema: Saúde
+  resumo: Concluir o Hospital da Mulher e Maternidade em Palmas, construir outro em Araguatins, concluir o Hospital
+    Geral de Gurupi e ampliar as cirurgias eletivas para 20 mil por ano.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 32)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Educação
+  resumo: Política estadual de apoio aos municípios para ampliar creches, ensino médio integrado à educação profissional
+    em todas as regionais e transporte universitário intermunicipal.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 17, 19 e 20)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Segurança pública
+  resumo: Programa Territórios de Paz nos 20 municípios com mais homicídios, conclusão do Complexo Prisional Serra
+    do Carmo e progressões das carreiras policiais logo após o interstício.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 42 e 43)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Moradia
+  resumo: Banco de terrenos públicos urbanizados para habitação e expansão da regularização fundiária pelo programa
+    Tocantins Regular.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 49)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Economia e impostos
+  resumo: Programa Tocantins Transforma de diversificação industrial, Parque Tecnológico do Tocantins e fundo garantidor
+    para pequenas e médias empresas.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 53)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Infraestrutura
+  resumo: Priorizar rodovias alimentadoras da Ferrovia Norte-Sul, agenda de dragagem do Rio Tocantins e plataformas
+    logísticas em Palmas, Gurupi e Araguaína.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 57)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Gestão pública
+  resumo: Escritório de Projetos para apoiar municípios na captação de recursos e cumprimento dos planos de carreira
+    dos servidores.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 82)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+trajetoria:
+- ano: 2023
+  titulo: Senadora pelo Tocantins (mandato 2023–2031)
+  resumo: Eleita em 2022.
+  fontes:
+  - titulo: Ex-deputada Professora Dorinha é absolvida de crimes contra a Lei de Licitações
+    url: https://www.migalhas.com.br/quentes/303698/ex-deputada-federal--professora-dorinha-e-absolvida-de-crimes-contra-a-lei-de-licitacoes
+    veiculo: Migalhas
+  - titulo: Saiba quem é Professora Dorinha, candidata ao governo do TO
+    url: https://obrasilianista.com.br/2026/09/22/politica/professora-dorinha-candidata-governo-tocantins
+    veiculo: O Brasilianista
+- ano: 2011
+  titulo: Deputada federal pelo Tocantins (2011–2023)
+  resumo: Três mandatos (eleita em 2010, 2014 e 2018); foi líder da bancada feminina na Câmara.
+  fontes:
+  - titulo: Saiba quem é Professora Dorinha, candidata ao governo do TO
+    url: https://obrasilianista.com.br/2026/09/22/politica/professora-dorinha-candidata-governo-tocantins
+    veiculo: O Brasilianista
+  - titulo: Ex-deputada Professora Dorinha é absolvida de crimes contra a Lei de Licitações
+    url: https://www.migalhas.com.br/quentes/303698/ex-deputada-federal--professora-dorinha-e-absolvida-de-crimes-contra-a-lei-de-licitacoes
+    veiculo: Migalhas
+- ano: null
+  titulo: Secretária de Educação e Cultura do Tocantins
+  resumo: Comandou a pasta por mais de nove anos, antes de disputar eleições.
+  fontes:
+  - titulo: Saiba quem é Professora Dorinha, candidata ao governo do TO
+    url: https://obrasilianista.com.br/2026/09/22/politica/professora-dorinha-candidata-governo-tocantins
+    veiculo: O Brasilianista
+  - titulo: Ex-deputada Professora Dorinha é absolvida de crimes contra a Lei de Licitações
+    url: https://www.migalhas.com.br/quentes/303698/ex-deputada-federal--professora-dorinha-e-absolvida-de-crimes-contra-a-lei-de-licitacoes
+    veiculo: Migalhas
+conduta:
+- tipo: criminal
+  situacao: absolvido
+  status: confirmado
+  titulo: Ações penais sobre compra de material didático sem licitação (2003–2004)
+  data: '2019-06-04'
+  resumo: Denunciada pelo MPF por compras diretas de material didático quando era secretária de Educação. Na AP
+    946, foi condenada pela 1ª Turma do STF em 2017, mas o Plenário a absolveu em embargos infringentes em agosto
+    de 2018 (8 a 3). Na AP 962, a 1ª Turma a absolveu em junho de 2019 (4 a 1), por falta de prova de dolo e de
+    sobrepreço.
+  processo: AP 946 e AP 962 (STF)
+  fontes:
+  - titulo: Professora Dorinha é absolvida da acusação de crime contra a Lei das Licitações
+    url: https://noticias.stf.jus.br/postsnoticias/professora-dorinha-e-absolvida-da-acusacao-de-crime-contra-a-lei-das-licitacoes/
+    veiculo: STF
+  - titulo: Plenário do STF reforma decisão da 1ª Turma e absolve deputada
+    url: https://conjur.com.br/2018-ago-31/plenario-stf-reforma-decisao-turma-absolve-deputada/
+    veiculo: Consultor Jurídico
+    data: '2018-08-31'
+  - titulo: Ex-deputada Professora Dorinha é absolvida de crimes contra a Lei de Licitações
+    url: https://www.migalhas.com.br/quentes/303698/ex-deputada-federal--professora-dorinha-e-absolvida-de-crimes-contra-a-lei-de-licitacoes
+    veiculo: Migalhas
+links: []

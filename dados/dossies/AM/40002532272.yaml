@@ -1,0 +1,71 @@
+# Omar Aziz (Omar Jose Abdelaziz) — GOVERNADOR / AM — PSD
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_AM.zip)
+id: '40002532272'
+atualizado_em: '2026-10-05'
+resumo: Engenheiro civil, governou o Amazonas entre 2010 e 2014 e é senador desde 2015.
+propostas:
+- tema: Segurança pública
+  resumo: Ampliar o Ronda no Bairro com novos eixos (Ronda nos Municípios, nos Rios, Social e Digital), bases fluviais
+    e fortalecimento das guardas municipais.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (Eixo 2, apresentação)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+- tema: Saúde
+  resumo: 'Programa Saúde Amazonas: telessaúde nos 62 municípios, polos regionais de média complexidade, barcos-hospitais
+    e leitos de UTI nas três macrorregiões.'
+  fontes:
+  - titulo: Plano de governo registrado no TSE (Eixo 2, apresentação e capítulo de Saúde)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+- tema: Educação
+  resumo: Pacto Estadual de Alfabetização para que todas as crianças estejam alfabetizadas ao fim do 2º ano, e programa
+    Amazonas Ensino Médio Forte com educação profissional.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (Eixo 3, apresentação)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+- tema: Assistência social
+  resumo: Programa Amazonas Forte Social, ligando benefícios a oportunidades de emprego e renda.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (Eixo 2, apresentação)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+- tema: Moradia
+  resumo: Programa Amazonas Habitação, com reserva mínima de 35% dos recursos para os 61 municípios do interior.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (Eixo 3, capítulo de Habitação)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+- tema: Meio ambiente
+  resumo: Salas de situação regionais com dados do Inpe, pagamento por serviços ambientais a quem mantém floresta
+    e vinculação de CPF/CNPJ de infratores ambientais ao bloqueio de crédito rural.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (capítulo de Meio Ambiente, plano de ação)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+- tema: Gestão pública
+  resumo: Amazonas Digital e Inovador, plano decenal de governo digital.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (Eixo 3, apresentação)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AM.zip
+trajetoria:
+- ano: 2021
+  titulo: Presidente da CPI da Pandemia no Senado
+  resumo: Eleito presidente da comissão em abril de 2021.
+  fontes:
+  - titulo: Omar Aziz é eleito presidente da CPI da Pandemia — Senado Notícias
+    url: https://www12.senado.leg.br/noticias/videos/2021/04/omar-aziz-e-eleito-presidente-da-cpi-da-pandemia-renan-e-o-relator
+- ano: 2015
+  titulo: Senador pelo Amazonas (desde 2015)
+  resumo: Eleito em 2014 e reeleito em 2022.
+  fontes:
+  - titulo: Perfil do senador — Senado Federal
+    url: https://www25.senado.leg.br/web/senadores/senador/-/perfil/5525
+  - titulo: Omar Aziz é reeleito senador pelo Amazonas — Senado Notícias
+    url: https://www12.senado.leg.br/noticias/materias/2022/10/02/omar-aziz-e-reeleito-senador-pelo-amazonas
+- ano: 2010
+  titulo: Governador do Amazonas (2010–2014)
+  resumo: Antes, foi deputado estadual, vice-prefeito de Manaus e vice-governador.
+  fontes:
+  - titulo: Quem é quem na disputa ao governo do Amazonas
+    url: https://revistaoeste.com/politica/quem-e-quem-na-disputa-ao-governo-do-amazonas/
+    veiculo: Revista Oeste
+  - titulo: Omar Aziz vence as eleições ao Senado pelo Amazonas — Senado Notícias
+    url: https://www12.senado.leg.br/noticias/materias/2014/10/05/omar-aziz-vence-as-eleicoes-ao-senado-pelo-amazonas
+conduta: []
+links: []

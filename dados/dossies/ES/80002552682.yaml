@@ -1,0 +1,82 @@
+# Lorenzo Pazolini (Lorenzo Silva de Pazolini) — GOVERNADOR / ES — REPUBLICANOS
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_ES.zip)
+id: '80002552682'
+atualizado_em: '2026-10-05'
+resumo: Delegado da Polícia Civil, foi deputado estadual e prefeito de Vitória.
+propostas:
+- tema: Segurança pública
+  resumo: Sistema Estadual de Videomonitoramento com inteligência artificial e reconhecimento em tempo real, integrando
+    câmeras privadas, política de segurança rural e força-tarefa contra crimes eletrônicos.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 19 e 20)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Saúde
+  resumo: Concluir o Hospital Geral de Cariacica e o Complexo de Saúde Norte, iniciar o novo Hospital Infantil Estadual
+    e levar equipes multiprofissionais às escolas (Consultório nas Escolas).
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 23)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Educação
+  resumo: Ampliar as escolas em tempo integral priorizando territórios vulneráveis e fortalecer o projeto de vida
+    e a orientação profissional no ensino médio.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 15)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Mulheres
+  resumo: Apoiar a expansão do modelo Casa Rosa, implantado em Vitória, para os municípios-polo.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 20)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Assistência social
+  resumo: Programa Moradia Primeiro para a população em situação de rua, com acompanhamento intensivo e locação
+    social.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 26)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Economia e impostos
+  resumo: Adotar a aprovação por decurso de prazo em licenças, criar fundo de desenvolvimento para o interior fora
+    da Sudene e revisar gastos sem aumentar a carga tributária.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 33 e 51)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Infraestrutura
+  resumo: Duplicar gargalos da malha estadual, articular as BR-101, BR-262 e a ferrovia EF-118 e ampliar voos internacionais
+    no aeroporto de Vitória.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 41)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Moradia
+  resumo: Locação social com aluguel compatível com a renda, regularização fundiária contínua e “choque ético e
+    de gestão” na Cesan para expandir o saneamento.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 45)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Gestão pública
+  resumo: Regras de integridade com declaração obrigatória de vínculos familiares e societários em contratos e decisões
+    do Estado.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 51)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+trajetoria:
+- ano: 2021
+  titulo: Prefeito de Vitória (2021–2026)
+  resumo: Reeleito em 2024 no 1º turno com 56,22% dos votos válidos; deixou o cargo em 2026 para disputar o governo.
+  fontes:
+  - titulo: Lorenzo Pazolini é reeleito prefeito de Vitória
+    url: https://www.poder360.com.br/poder-eleicoes/lorenzo-pazolini-republicanos-e-reeleito-prefeito-de-vitoria/
+    veiculo: Poder360
+  - titulo: Ex-prefeito de Vitória, Lorenzo Pazolini é candidato ao governo do ES
+    url: https://jovempan.com.br/?p=292673
+    veiculo: Jovem Pan
+- ano: 2019
+  titulo: Deputado estadual no Espírito Santo (2019–2020)
+  resumo: Eleito em 2018; é delegado da Polícia Civil desde 2007.
+  fontes:
+  - titulo: Lorenzo Pazolini é reeleito prefeito de Vitória
+    url: https://www.poder360.com.br/poder-eleicoes/lorenzo-pazolini-republicanos-e-reeleito-prefeito-de-vitoria/
+    veiculo: Poder360
+  - titulo: Quem é Lorenzo Pazolini
+    url: https://www.agazeta.com.br/es/politica/quem-e-lorenzo-pazolini-prefeito-eleito-em-vitoria-1220
+    veiculo: A Gazeta
+conduta: []
+links: []

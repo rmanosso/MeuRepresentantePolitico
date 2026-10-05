@@ -1,0 +1,114 @@
+# Eduardo Paes (Eduardo da Costa Paes) — GOVERNADOR / RJ — PSD
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_RJ.zip)
+id: '190002543380'
+atualizado_em: '2026-10-05'
+resumo: Foi prefeito do Rio de Janeiro por quatro mandatos; deixou a prefeitura em 2026 para disputar o governo.
+propostas:
+- tema: Segurança pública
+  resumo: Novo modelo de patrulhamento territorial, retomada de áreas dominadas pelo crime inclusive com as Forças
+    Armadas e fim das indicações políticas para comandos de batalhões e delegacias.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 6)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Saúde
+  resumo: Recuperar hospitais e UPAs estaduais, contratar mais médicos e especialistas, garantir remédios e assegurar
+    os repasses da atenção primária aos municípios.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 6)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Educação
+  resumo: Expandir o ensino médio profissionalizante em tempo integral conforme as vocações regionais e fazer as
+    Faetecs renascerem.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 4 e 6)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Infraestrutura
+  resumo: Iniciar as obras da Linha 3 do metrô (Niterói, São Gonçalo e Itaboraí), levar o BRT para a Baixada, colocar
+    a Supervia no padrão do BRT e recuperar estradas do interior.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 4 e 7)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Meio ambiente
+  resumo: Plano de obras contra enchentes e deslizamentos, com atenção à Região Serrana, Costa Verde e Baixada.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 7)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Economia e impostos
+  resumo: Atrair investimentos em petróleo e gás, turismo, indústria naval, agronegócio e cultura, e reequilibrar
+    as finanças para recuperar a capacidade de investir.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 7)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Mulheres
+  resumo: Reduzir os feminicídios com o fortalecimento das Patrulhas Maria da Penha, dentro do novo modelo de patrulhamento.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 6)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Assistência social
+  resumo: Apoiar as prefeituras na educação inclusiva e na assistência às famílias de crianças com autismo.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 6)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+- tema: Gestão pública
+  resumo: Criar o Conselho das Cidades, ligado ao governador, e garantir repasses aos 92 municípios sem distinção
+    partidária.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 5 e 7)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+trajetoria:
+- ano: 2021
+  titulo: Prefeito do Rio de Janeiro (2021–2026)
+  resumo: Reeleito em 2024; renunciou em março de 2026 para disputar o governo, e o vice assumiu.
+  fontes:
+  - titulo: Eduardo Paes deixa a Prefeitura do Rio para disputar o governo
+    url: https://diariodorio.com/eduardo-paes-deixa-a-prefeitura-do-rio-nesta-sexta-20-para-disputar-o-governo-do-rj-cavaliere-assume/
+    veiculo: Diário do Rio
+  - titulo: Eduardo Paes renuncia e passa a prefeitura para Cavaliere
+    url: https://exame.com/brasil/eduardo-paes-renuncia-e-passa-a-prefeitura-do-rio-de-janeiro-para-cavaliere/
+    veiculo: Exame
+- ano: 2009
+  titulo: Prefeito do Rio de Janeiro (2009–2016)
+  resumo: Dois mandatos consecutivos; ao todo, foram quatro mandatos na prefeitura.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 4)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_RJ.zip
+  - titulo: Eduardo Paes renuncia e passa a prefeitura para Cavaliere
+    url: https://exame.com/brasil/eduardo-paes-renuncia-e-passa-a-prefeitura-do-rio-de-janeiro-para-cavaliere/
+    veiculo: Exame
+conduta:
+- tipo: criminal
+  situacao: absolvido
+  status: confirmado
+  titulo: Ação por caixa 2 baseada na delação da Odebrecht
+  data: '2023-05-16'
+  resumo: Em 2020 tornou-se réu na Justiça Eleitoral, acusado de receber recursos não declarados da Odebrecht na
+    campanha de 2012. Em maio de 2023 foi absolvido por falta de provas, a pedido do próprio Ministério Público
+    Eleitoral.
+  fontes:
+  - titulo: Eduardo Paes vira réu por corrupção e lavagem de dinheiro
+    url: https://conjur.com.br/2020-set-08/eduardo-paes-vira-reu-corrupcao-lavagem-dinheiro/
+    veiculo: Consultor Jurídico
+    data: '2020-09-08'
+  - titulo: Sem provas, Eduardo Paes é absolvido de acusação baseada em delação
+    url: https://www.conjur.com.br/2023-mai-25/provas-eduardo-paes-absolvido-acusacao-baseada-delacao/
+    veiculo: Consultor Jurídico
+    data: '2023-05-25'
+  - titulo: Juiz absolve Eduardo Paes de acusação baseada em delação da Odebrecht
+    url: https://revistaoeste.com/brasil/juiz-absolve-eduardo-paes-de-acusacao-baseada-em-delacao-da-odebrecht/
+    veiculo: Revista Oeste
+- tipo: eleitoral
+  situacao: absolvido
+  status: confirmado
+  titulo: Inelegibilidade por abuso de poder na eleição de 2016, revertida pelo TSE
+  data: '2021-02-02'
+  resumo: Em 2017 o TRE-RJ declarou Paes inelegível por oito anos por uso do plano estratégico da prefeitura na
+    campanha de Pedro Paulo em 2016. Em fevereiro de 2021 o TSE reverteu a decisão, entendendo que não ficou comprovada
+    conduta grave.
+  fontes:
+  - titulo: TSE derruba decisão que declarou Eduardo Paes inelegível
+    url: https://www.poder360.com.br/brasil/tse-derruba-decisao-que-declarou-eduardo-paes-inelegivel/
+    veiculo: Poder360
+  - titulo: TSE suspende inelegibilidade do ex-prefeito Eduardo Paes
+    url: https://www.migalhas.com.br/quentes/279965/tse-mussi-suspende-inelegibilidade-do-ex-prefeito-do-rio-eduardo-paes
+    veiculo: Migalhas
+links: []

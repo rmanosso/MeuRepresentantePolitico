@@ -1,0 +1,90 @@
+# Ricardo Ferraço (Ricardo de Rezende Ferraço) — GOVERNADOR / ES — MDB
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_ES.zip)
+id: '80002552172'
+atualizado_em: '2026-10-05'
+resumo: Foi senador e vice-governador; governa o Espírito Santo desde abril de 2026.
+propostas:
+- tema: Educação
+  resumo: Universalizar as matrículas em tempo integral na rede estadual e instalar micro-usinas solares nas escolas.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 17)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Saúde
+  resumo: Concluir o Hospital Geral de Cariacica e o Complexo de Saúde Norte, construir o Complexo de Saúde Central
+    em Colatina e implantar o Minha Saúde ES com prontuário integrado e inteligência artificial.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 26 e 28)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Segurança pública
+  resumo: Política Estadual Permanente de Enfrentamento ao Crime Organizado como prioridade do programa Estado Presente
+    e reforço contra crimes cibernéticos.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 34)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Mulheres
+  resumo: Cartão Mulher Segura, com transferência temporária de renda para mulheres em situação de violência, e
+    monitoramento eletrônico de agressores.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 50)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Infraestrutura
+  resumo: Duplicar trechos das rodovias ES-010, ES-060, ES-257 e ES-488 e atuar pela duplicação das BRs 101, 262
+    e 259.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 82 e 93)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Meio ambiente
+  resumo: Concluir a Barragem dos Imigrantes (23 bilhões de litros) e implantar usina de dessalinização em Guarapari.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 100)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Economia e impostos
+  resumo: Programa de Sofisticação Produtiva com Bandes e Fortec e fortalecimento dos complexos logístico-portuários
+    Parklog Norte e Sul.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 82)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Assistência social
+  resumo: Instituir a Política Estadual de Cuidados para primeira infância, idosos e pessoas com deficiência.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 42)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+- tema: Gestão pública
+  resumo: Marco Fiscal e Orçamentário de Médio Prazo e revisão sistemática do gasto integrada ao orçamento.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 131)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_ES.zip
+trajetoria:
+- ano: 2026
+  titulo: Governador do Espírito Santo
+  resumo: Assumiu em 2 de abril de 2026, após a renúncia de Renato Casagrande para disputar o Senado.
+  fontes:
+  - titulo: Ricardo Ferraço assume governo nesta quinta
+    url: https://tribunaonline.com.br/politica/ricardo-ferraco-assume-governo-nesta-quinta-e-marca-reuniao-com-secretarios-297876
+    veiculo: Tribuna Online
+  - titulo: Vice-governador — Governo do Espírito Santo
+    url: https://www.es.gov.br/governo/vice-governador
+- ano: 2023
+  titulo: Vice-governador do Espírito Santo (2023–2026)
+  resumo: Eleito em 2022 na chapa de Renato Casagrande.
+  fontes:
+  - titulo: Vice-governador — Governo do Espírito Santo
+    url: https://www.es.gov.br/governo/vice-governador
+conduta:
+- tipo: criminal
+  situacao: arquivado
+  status: confirmado
+  titulo: Inquérito baseado na delação da Odebrecht
+  data: '2018-06-09'
+  resumo: Foi investigado no STF por suspeita de receber R$ 400 mil não declarados da Odebrecht na campanha ao Senado
+    de 2010. Em junho de 2018, o ministro Luís Roberto Barroso determinou o arquivamento do inquérito por falta
+    de elementos, sem que houvesse denúncia.
+  fontes:
+  - titulo: Barroso determina arquivamento de inquérito da Odebrecht contra Ferraço
+    url: https://istoedinheiro.com.br/barroso-determina-arquivamento-de-inquerito-da-odebrecht-contra-ferraco
+    veiculo: IstoÉ Dinheiro
+    data: '2018-06-09'
+  - titulo: Barroso manda arquivar inquérito sobre Ferraço
+    url: https://oantagonista.com.br/?p=100183
+    veiculo: O Antagonista
+links: []

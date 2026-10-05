@@ -1,0 +1,84 @@
+# Alan Rick (Alan Rick Miranda) — GOVERNADOR / AC — REPUBLICANOS
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_AC.zip)
+id: '10002532492'
+atualizado_em: '2026-10-05'
+resumo: Jornalista, foi deputado federal pelo Acre e é senador desde 2023.
+propostas:
+- tema: Saúde
+  resumo: Construir o Hospital Metropolitano de Urgência e Emergência no Segundo Distrito de Rio Branco, fazer mutirões
+    cirúrgicos anuais com uso noturno das salas da Fundhacre e criar o Centro Estadual de Neurodesenvolvimento e
+    Autismo.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 30 e 31)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Segurança pública
+  resumo: Instalar o Gabinete Estadual de Enfrentamento ao Crime Organizado, o Programa de Segurança Rural com patrulha
+    georreferenciada e retomar acordos com Bolívia e Peru contra crimes transfronteiriços.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 34)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Mulheres
+  resumo: Implantar delegacias da mulher, centros de referência e casas-abrigo nas cinco regionais, criar a DEAM
+    Virtual e Salas Lilás nos municípios sem delegacia especializada.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 26 e 35)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Educação
+  resumo: Reformular o plano de carreira do magistério, garantir o piso, reduzir contratos temporários com concursos,
+    levar internet de alta velocidade a todas as escolas e expandir escolas cívico-militares em áreas vulneráveis.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 21)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Assistência social
+  resumo: Programa Acre Sem Fome, com Banco Estadual de Alimentos e restaurantes populares, e Cartão Auxílio Moradia
+    para famílias que perderem a casa em desastres.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 25)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Trabalho e emprego
+  resumo: Programa Primeiro Emprego Acre para jovens de 16 a 29 anos, com incentivos às empresas, estágios e aprendizagem.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 26)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Infraestrutura
+  resumo: Programa Acre Plataforma Logística Internacional, modernização do Centro Integrado de Fronteira de Assis
+    Brasil e apoio à Ferrovia Bioceânica.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 16)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Moradia
+  resumo: Programa habitacional com regularização fundiária, melhorias em moradias de baixa renda, reassentamento
+    de famílias em áreas de risco e criação de um Banco Estadual de Terras Habitacionais.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 17)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Meio ambiente
+  resumo: Programa Cidades Resilientes contra inundações, com o projeto Adapta Rio Branco na bacia do Igarapé São
+    Francisco.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 15)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Gestão pública
+  resumo: Centro de Governo com acordos anuais de resultados e painel público de entregas; recuperar a capacidade
+    de investir sem aumentar impostos.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 37)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+trajetoria:
+- ano: 2023
+  titulo: Senador pelo Acre (mandato 2023–2031)
+  resumo: Eleito em 2022.
+  fontes:
+  - titulo: Perfil do senador — Senado Federal
+    url: https://www25.senado.leg.br/web/senadores/senador/-/perfil/5672
+  - titulo: Alan Rick é eleito para o Senado pelo Acre
+    url: https://www.poder360.com.br/eleicoes/alan-rick-uniao-brasil-e-eleito-para-o-senado-pelo-acre/
+    veiculo: Poder360
+- ano: 2015
+  titulo: Deputado federal pelo Acre (2015–2023)
+  resumo: Deixou a Câmara ao ser eleito senador.
+  fontes:
+  - titulo: Quinze deputados federais são eleitos para outros cargos — Agência Câmara
+    url: https://www.camara.leg.br/noticias/916400-quinze-deputados-federais-sao-eleitos-para-outros-cargos-no-pleito-deste-ano/
+conduta: []
+links: []

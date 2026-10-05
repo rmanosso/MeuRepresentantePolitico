@@ -1,0 +1,58 @@
+# Vicentinho Júnior (Vicente Alves de Oliveira Júnior) — GOVERNADOR / TO — PSDB
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_TO.zip)
+id: '270002544544'
+atualizado_em: '2026-10-05'
+resumo: Empresário, é deputado federal pelo Tocantins desde 2015.
+propostas:
+- tema: Saúde
+  resumo: Programa Fila Zero (Corujão) contratando hospitais privados à noite para zerar cirurgias eletivas, hemodinâmica
+    em Araguaína e UTI aérea e fluvial.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 191, 192 e 196)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Mulheres
+  resumo: Aluguel social para vítimas de violência doméstica saírem de casa, microcrédito a juro zero para mulheres
+    e Casas da Mulher regionalizadas.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 171 a 173)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Segurança pública
+  resumo: Patrulha rural georreferenciada com QR Code nas porteiras, Centro Forense com rastreio de armas e botão
+    do pânico integrado ao GPS das viaturas.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 202 a 205)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Economia e impostos
+  resumo: Lei estadual de liberdade econômica dispensando alvarás para baixo risco, nova ZPE focada em carne, grãos
+    e minérios e porto seco ao lado do pátio da ferrovia.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 137, 140 e 165)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Trabalho e emprego
+  resumo: Meta de pleno emprego com metas mensais para as regionais do Sine e desoneração para contratação de jovens
+    no comércio e serviços.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 152 e 154)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Educação
+  resumo: Alfabetização na idade certa com foco nos municípios de pior IDH e ensino fundamental técnico voltado
+    ao agronegócio.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 071 e 072)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+- tema: Gestão pública
+  resumo: Central de licitações com matriz de risco, análise prévia de editais acima de R$ 10 milhões pela Controladoria
+    e PGE e meta de 50% do administrativo em home office.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (propostas 204 e 206)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_TO.zip
+trajetoria:
+- ano: 2015
+  titulo: Deputado federal pelo Tocantins (desde 2015)
+  resumo: Três mandatos (2015–2019, 2019–2023 e 2023–2027); em 2024 licenciou-se para ser secretário extraordinário
+    de Ações Estratégicas do Tocantins.
+  fontes:
+  - titulo: Biografia — Câmara dos Deputados
+    url: https://www.camara.leg.br/deputados/137070/biografia
+conduta: []
+links: []

@@ -109,7 +109,7 @@ def html(candidatos: list[dict], dossies: dict) -> str:
 <div class="capa">
   <h1>Relatório para revisão jurídica</h1>
   <p><b>Meu Representante</b> — dossiê aberto sobre candidatos das Eleições 2026</p>
-  <p>Escopo: candidatos à Presidência no 2º turno ({escape(config.DATA_SEGUNDO_TURNO_TXT)})</p>
+  <p>Escopo: candidatos do 2º turno, Presidência e governos estaduais ({escape(config.DATA_SEGUNDO_TURNO_TXT)})</p>
   <p>Gerado em {agora}</p>
 </div>
 <div class="aviso"><b>Documento interno e confidencial.</b> Contém {pend} registro(s) ainda não publicado(s), que não devem ser
@@ -154,7 +154,8 @@ de conduta, em especial:</p>
 def gerar(candidatos: list[dict], dossies: dict) -> Path:
     pasta = config.RAIZ / "revisao"
     pasta.mkdir(exist_ok=True)
-    dia = datetime.now().strftime("%Y-%m-%d")
+    # Horário no nome: cada versão é um arquivo novo (o anterior pode estar aberto num leitor de PDF).
+    dia = datetime.now().strftime("%Y-%m-%d_%Hh%M")
     arq_html = pasta / f"relatorio_revisao_juridica_{dia}.html"
     arq_pdf = arq_html.with_suffix(".pdf")
     arq_html.write_text(html(candidatos, dossies), encoding="utf-8")
@@ -165,4 +166,7 @@ def gerar(candidatos: list[dict], dossies: dict) -> Path:
     subprocess.run([nav, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
                     f"--print-to-pdf={arq_pdf}", arq_html.as_uri()], check=False,
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=120)
-    return arq_pdf if arq_pdf.exists() else arq_html
+    if not arq_pdf.exists():
+        print(f"Não foi possível gerar o PDF; abra {arq_html} no navegador e imprima como PDF.")
+        return arq_html
+    return arq_pdf

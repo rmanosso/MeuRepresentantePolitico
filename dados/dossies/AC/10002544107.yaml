@@ -1,0 +1,100 @@
+# Mailza Assis (Mailza Assis Cameli) — GOVERNADOR / AC — PP
+# Plano de governo: dados abertos do TSE (proposta_governo_2026_AC.zip)
+id: '10002544107'
+atualizado_em: '2026-10-05'
+resumo: Pedagoga, foi senadora pelo Acre (2019–2023) e vice-governadora; governa o estado desde abril de 2026 e
+  disputa a eleição.
+propostas:
+- tema: Educação
+  resumo: Ampliar gradualmente a educação em tempo integral em todas as regionais, garantir a alfabetização na idade
+    certa e criar núcleos regionais de atenção psicossocial com psicólogos e assistentes sociais em todos os municípios.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 9 e 10)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Saúde
+  resumo: Expandir o Opera Acre e aderir ao Agora Tem Especialistas para reduzir filas; concluir a Maternidade Marieta
+    Messias Cameli, implantar o Pronto-Socorro infantil e entregar a Unacon de Rio Branco.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 16 e 19)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Segurança pública
+  resumo: Programa Blindagem das Fronteiras, com postos de vigilância 24h e Centro Integrado de Inteligência de
+    Fronteira com Peru, Bolívia e estados vizinhos; criar o Batalhão de Policiamento Comunitário.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 23 e 24)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Mulheres
+  resumo: Pacto Acreano pela Vida das Mulheres, Crianças e Adolescentes, com acompanhamento de 100% das medidas
+    protetivas de alto risco por monitoração eletrônica.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 23)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Trabalho e emprego
+  resumo: Patrulhas mecanizadas para pequenos produtores em todos os municípios, Programa Ramais da Produção e ampliação
+    das compras da agricultura familiar com recursos estaduais.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 35)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Economia e impostos
+  resumo: Plano de atração de investimentos para as Áreas de Livre Comércio e a ZPE, Porto Seco no Baixo e Alto
+    Acre e conclusão da rota de exportação ao Pacífico (Rota Quadrante Rondon).
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 42 e 43)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Infraestrutura
+  resumo: Substituir gradualmente pontes de madeira por pontes de concreto e recuperar todos os aeródromos públicos
+    para operação diária, inclusive noturna.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 49)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Moradia
+  resumo: Ampliar a construção de moradias de interesse social, priorizando famílias de baixa renda, mulheres chefes
+    de família e moradores de áreas de risco, e fortalecer a regularização fundiária urbana.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 53 e 54)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Meio ambiente
+  resumo: Sistema integrado de monitoramento contra desmatamento e queimadas ilegais e conclusão da regularização
+    ambiental e fundiária das propriedades rurais.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 58)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+- tema: Gestão pública
+  resumo: Criar o Escritório Estadual de Projetos e um programa de equilíbrio financeiro e atuarial da previdência
+    estadual.
+  fontes:
+  - titulo: Plano de governo registrado no TSE (p. 63 e 65)
+    url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_AC.zip
+trajetoria:
+- ano: 2026
+  titulo: Governadora do Acre
+  resumo: Assumiu em 2 de abril de 2026, após a renúncia de Gladson Cameli para disputar o Senado.
+  fontes:
+  - titulo: Mailza Assis busca nas urnas permanência no comando do Acre
+    url: https://jovempan.com.br/?p=285715
+    veiculo: Jovem Pan
+  - titulo: Conheça a carreira política de Mailza Assis
+    url: https://www.itatiaia.com.br/politica/eleicoes/conheca-a-carreira-politica-de-mailza-assis-pre-candidata-ao-governo-do-acre/
+    veiculo: Itatiaia
+- ano: 2023
+  titulo: Vice-governadora do Acre (2023–2026)
+  resumo: Eleita em 2022 na chapa de Gladson Cameli.
+  fontes:
+  - titulo: Conheça a carreira política de Mailza Assis
+    url: https://www.itatiaia.com.br/politica/eleicoes/conheca-a-carreira-politica-de-mailza-assis-pre-candidata-ao-governo-do-acre/
+    veiculo: Itatiaia
+  - titulo: Mailza Assis busca nas urnas permanência no comando do Acre
+    url: https://jovempan.com.br/?p=285715
+    veiculo: Jovem Pan
+- ano: 2019
+  titulo: Senadora pelo Acre (2019–2023)
+  resumo: Eleita 1ª suplente em 2014, assumiu a vaga quando o titular foi eleito governador.
+  fontes:
+  - titulo: Conheça a carreira política de Mailza Assis
+    url: https://www.itatiaia.com.br/politica/eleicoes/conheca-a-carreira-politica-de-mailza-assis-pre-candidata-ao-governo-do-acre/
+    veiculo: Itatiaia
+  - titulo: Mailza Assis busca nas urnas permanência no comando do Acre
+    url: https://jovempan.com.br/?p=285715
+    veiculo: Jovem Pan
+conduta: []
+links: []
