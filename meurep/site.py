@@ -2,11 +2,12 @@
 import json
 import shutil
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 from . import config
 from .dossies import CRITERIO_PUBLICACAO, publico
 
+BRASILIA = timezone(timedelta(hours=-3))  # o GitHub Actions roda em UTC
 DERIVADOS = ("foto", "tse_url")  # recalculados no navegador para deixar os JSON leves
 
 
@@ -59,7 +60,7 @@ def gerar(candidatos: list[dict], gerado_em_tse: str) -> None:
         "criterio_publicacao": CRITERIO_PUBLICACAO,
         "tse_gerado_em": gerado_em_tse,
         "totalizacao_atualizada": max(datas).strftime("%d/%m/%Y %H:%M") if datas else None,
-        "site_gerado_em": datetime.now().strftime("%d/%m/%Y %H:%M"),
+        "site_gerado_em": datetime.now(BRASILIA).strftime("%d/%m/%Y %H:%M"),
         "pilares": config.PILARES,
         "ordem_cargos": config.ORDEM_CARGOS,
         "ufs": config.UFS,
