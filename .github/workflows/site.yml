@@ -1,0 +1,51 @@
+name: Gerar e publicar o site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 */3 * * *"   # a cada 3 horas, para pegar atualizações do TSE
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Validar dossiês
+        run: python MeuRepresentante.py validar
+      - name: Conferir links das fontes
+        if: github.event_name == 'pull_request'
+        run: python MeuRepresentante.py verificar-links
+      - name: Importar TSE e gerar site
+        run: python MeuRepresentante.py tudo
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: site
+
+  publicar:
+    if: github.event_name != 'pull_request'
+    needs: gerar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

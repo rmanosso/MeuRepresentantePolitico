@@ -1,0 +1,30 @@
+name: Correção
+description: Algo errado, desatualizado ou sem fonte em uma página de candidato
+title: "Correção: "
+labels: [correcao]
+body:
+  - type: input
+    id: candidato
+    attributes:
+      label: Candidato(a) e id
+      description: Nome, partido/UF e o id que aparece no título ou no link da página
+    validations:
+      required: true
+  - type: textarea
+    id: erro
+    attributes:
+      label: O que está errado?
+    validations:
+      required: true
+  - type: textarea
+    id: fonte
+    attributes:
+      label: Fonte da informação correta
+      description: Links para documentos oficiais ou reportagens
+    validations:
+      required: true
+  - type: dropdown
+    id: papel
+    attributes:
+      label: Você é
+      options: [Eleitor(a), Candidato(a) ou assessoria, Jornalista, Outro]

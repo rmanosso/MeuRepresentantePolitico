@@ -1,0 +1,62 @@
+# MODELO DE DOSSIÊ — não edite este arquivo; ele é ignorado pelo gerador.
+# Crie o dossiê de um candidato com:
+#     python MeuRepresentante.py buscar "nome do candidato"
+#     python MeuRepresentante.py novo-dossie <ID>
+#
+# Regras (verificadas automaticamente por `python MeuRepresentante.py validar`):
+#   - TODO item precisa de fonte com URL https.
+#   - Prefira fontes oficiais: tribunais (.jus.br), Ministério Público (.mp.br),
+#     órgãos públicos (.gov.br), Câmara/Senado/Assembleias (.leg.br).
+#   - Itens de conduta sem fonte oficial precisam de 2+ fontes independentes.
+#   - Escreva de forma neutra e factual: sem adjetivos, sem opinião.
+#   - Situações de conduta permitidas:
+#       investigado, denunciado, reu, condenado_1a_instancia, condenado_2a_instancia,
+#       condenado_definitivo, absolvido, arquivado, prescrito, anulado,
+#       sancao_administrativa, contas_rejeitadas, inelegivel, registro_publico
+#   - Tipos de conduta: criminal, improbidade, eleitoral, contas, civil,
+#     trabalhista, etica, declaracao, outro
+#   - Se o processo mudou de situação, ATUALIZE o item (não apague o histórico:
+#     registre no resumo, ex.: "condenado em 2021; absolvido em 2023 pelo TRF-1").
+# --- início ---
+id: "ID_DO_TSE"
+atualizado_em: 2026-10-05
+# Uma ou duas frases neutras sobre quem é a pessoa (opcional).
+resumo: >-
+
+propostas:
+  # Resuma cada proposta em até 2 frases, com as palavras do próprio plano/candidato.
+  - tema: Saúde
+    resumo: ""
+    fontes:
+      - titulo: Plano de governo registrado no TSE
+        url: https://divulgacandcontas.tse.jus.br/
+
+trajetoria:
+  # Cargos ocupados, leis aprovadas, projetos relevantes, realizações verificáveis.
+  - ano: 2020
+    titulo: ""
+    resumo: ""
+    fontes:
+      - titulo: Página do parlamentar na Câmara dos Deputados
+        url: https://www.camara.leg.br/
+
+conduta: []
+  # Exemplo de item (remova o [] acima e descomente):
+  # - tipo: improbidade
+  #   situacao: reu
+  #   titulo: Ação de improbidade sobre contrato X
+  #   resumo: Ministério Público acusa ... A ação foi recebida em 2024 e aguarda julgamento.
+  #   processo: "0000000-00.0000.0.00.0000"
+  #   data: 2024-03-10
+  #   resposta: Em nota, o candidato afirmou que ...
+  #   fontes:
+  #     - titulo: Consulta processual
+  #       url: https://www.tjsp.jus.br/
+  #     - titulo: Reportagem
+  #       veiculo: Nome do veículo
+  #       url: https://exemplo.com.br/reportagem
+  #       data: 2024-03-11
+
+links: []
+  # - titulo: Perfil na Câmara dos Deputados
+  #   url: https://www.camara.leg.br/deputados/000000

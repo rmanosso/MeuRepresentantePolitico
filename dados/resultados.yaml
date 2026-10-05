@@ -1,0 +1,15 @@
+# Resultados informados manualmente, usados SOMENTE enquanto o TSE ainda não
+# publicou a situação final (DS_SIT_TOT_TURNO) nos dados abertos. Assim que o
+# TSE atualizar, o dado oficial prevalece automaticamente.
+#
+# Cada entrada precisa de fonte (de preferência resultados.tse.jus.br ou o app
+# "Resultados" do TSE). Exemplo:
+#
+# resultados:
+#   - id: "250002544912"
+#     resultado: segundo_turno   # eleito | segundo_turno | nao_eleito | suplente
+#     fontes:
+#       - titulo: Resultado oficial TSE
+#         url: https://resultados.tse.jus.br/oficial/app/index.html
+
+resultados: []

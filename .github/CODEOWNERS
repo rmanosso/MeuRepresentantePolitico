@@ -1,0 +1,4 @@
+# Alterações em dossiês exigem aprovação de revisores credenciados.
+# Depois de criar a organização/equipe no GitHub, troque pelo nome real, ex.: @meu-representante/revisores
+/dados/dossies/  @SEU_USUARIO
+/docs/METODOLOGIA.md  @SEU_USUARIO

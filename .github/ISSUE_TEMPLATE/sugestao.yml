@@ -1,0 +1,32 @@
+name: Sugestão de informação
+description: Sugira propostas, trajetória ou registros de conduta (com fonte) para um dossiê
+title: "Sugestão: "
+labels: [dossie]
+body:
+  - type: input
+    id: candidato
+    attributes:
+      label: Candidato(a)
+      description: Nome, partido e UF (o id ajuda, se você souber)
+    validations:
+      required: true
+  - type: dropdown
+    id: secao
+    attributes:
+      label: Seção
+      options: [Propostas, Trajetória e realizações, Conduta e processos]
+    validations:
+      required: true
+  - type: textarea
+    id: conteudo
+    attributes:
+      label: Informação (resumo neutro e factual)
+    validations:
+      required: true
+  - type: textarea
+    id: fontes
+    attributes:
+      label: Fontes (links)
+      description: Para conduta, prefira fonte oficial (tribunal, MP) ou ao menos duas reportagens independentes
+    validations:
+      required: true

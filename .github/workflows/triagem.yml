@@ -1,0 +1,29 @@
+name: Triagem automática de sugestões
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  triagem:
+    if: contains(github.event.issue.labels.*.name, 'dossie') || contains(github.event.issue.labels.*.name, 'correcao')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Conferir links da sugestão
+        env:
+          CORPO: ${{ github.event.issue.body }}
+        run: printf '%s' "$CORPO" | python MeuRepresentante.py triagem - > triagem.md
+      - name: Comentar resultado
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment ${{ github.event.issue.number }} --body-file triagem.md

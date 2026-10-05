@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Representante · Eleições 2026</title>
+  <meta name="description" content="Dossiê aberto e com fontes sobre os candidatos e eleitos de 2026: Presidência, Governos, Senado, Câmara e Assembleias.">
+  <meta property="og:title" content="Meu Representante · Eleições 2026">
+  <meta property="og:description" content="Conheça quem vai decidir o futuro do país: propostas, trajetória e conduta, sempre com fonte.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,8 94,88 6,88' fill='none' stroke='%236D28D9' stroke-width='10'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <a href="#/" class="marca" aria-label="Início">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,10 92,86 8,86"/></svg>
+      <span><strong>Meu Representante</strong><small>Eleições 2026</small></span>
+    </a>
+    <form class="busca" id="busca" role="search">
+      <input type="search" id="busca-texto" placeholder="Buscar por nome, partido ou número…" aria-label="Buscar candidato">
+    </form>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <p class="carregando">Carregando…</p>
+  </main>
+
+  <footer class="rodape">
+    <p><strong>Projeto cidadão, apartidário e de código aberto.</strong>
+      Dados cadastrais e resultados: <a href="https://dadosabertos.tse.jus.br/" rel="noopener">Dados Abertos do TSE</a><span id="tse-data"></span>.
+      Propostas, trajetória e conduta: dossiês colaborativos, sempre com fonte citada.</p>
+    <p>Informações sobre processos respeitam a presunção de inocência: a situação de cada caso
+      (investigado, réu, condenado, absolvido…) é sempre indicada.
+      Encontrou um erro? <a id="link-correcao" href="#/sobre">Peça uma correção</a> · <a href="#/sobre">Metodologia</a> · <a href="#/colabore">Colabore</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

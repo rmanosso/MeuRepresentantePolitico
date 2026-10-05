@@ -1,0 +1,43 @@
+name: Quero ser revisor(a)
+description: Pedido de credenciamento para revisar dossiês
+title: "Revisor(a): "
+labels: [revisor]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado! Revisores conferem fontes e redação antes de qualquer publicação.
+        Os dados abaixo ficam visíveis publicamente; não inclua documentos pessoais.
+  - type: input
+    id: nome
+    attributes:
+      label: Nome (como deseja aparecer)
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options: [Jurídica (advocacia / estudante de Direito), Jornalismo / checagem, Pesquisa acadêmica, Outra]
+    validations:
+      required: true
+  - type: input
+    id: registro
+    attributes:
+      label: Registro profissional ou vínculo (opcional)
+      description: Ex.: OAB/UF nº, veículo, universidade. Usado só para credenciamento.
+  - type: textarea
+    id: perfil
+    attributes:
+      label: Link público de perfil profissional (opcional) e disponibilidade
+  - type: checkboxes
+    id: compromissos
+    attributes:
+      label: Compromissos
+      options:
+        - label: Aplicarei os mesmos critérios a candidatos de qualquer partido (docs/METODOLOGIA.md).
+          required: true
+        - label: Não revisarei textos que eu mesmo(a) escrevi nem candidaturas com as quais tenho vínculo.
+          required: true
+        - label: Não divulgarei itens que ainda estão em conferência.
+          required: true

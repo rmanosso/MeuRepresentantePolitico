@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# gerados (reproduzíveis com `python MeuRepresentante.py tudo`)
+cache/
+site/
+cards/
+
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# itens de dossiê ainda em conferência jurídica (nunca publicar)
+dados/privado/
+revisao/

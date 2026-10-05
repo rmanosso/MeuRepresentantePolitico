@@ -1,0 +1,213 @@
+# Lula (Luiz Inácio Lula da Silva) — PRESIDENTE / BR — PT nº 13
+# Plano de governo: dados abertos do TSE, arquivo BR/2026BR280002542548_01.pdf
+id: "280002542548"
+atualizado_em: 2026-10-05
+resumo: >-
+  Ex-metalúrgico e sindicalista, fundador do PT. Foi deputado federal constituinte
+  (1987–1991) e presidente da República em 2003–2010 e desde 2023. Disputa a reeleição.
+
+propostas:
+  - tema: Trabalho e emprego
+    resumo: >-
+      Atuar no Senado pelo fim da escala 6x1 e pela redução da jornada para 40 horas
+      semanais, sem redução salarial, nos termos aprovados na Câmara dos Deputados.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 75)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Trabalho e emprego
+    resumo: Manter a política de valorização do salário mínimo com aumento real.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 74)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Segurança pública
+    resumo: >-
+      Criar o Ministério da Segurança Pública após a aprovação da PEC da Segurança enviada
+      pelo governo, e fortalecer o Programa Brasil Contra o Crime Organizado, com previsão de
+      R$ 10 bilhões para estados e municípios.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 27, 28 e 30)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Segurança pública
+    resumo: >-
+      Manter a política de controle de armas e munições e ampliar o estímulo ao uso de
+      câmeras corporais pelas polícias, com padrões nacionais.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 28 e 30)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Economia e impostos
+    resumo: >-
+      Manter o arcabouço fiscal e criar condições para a queda sustentada dos juros com
+      inflação controlada; regulamentar a reforma tributária usando o Imposto Seletivo para
+      desestimular produtos nocivos à saúde.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 49 e 59)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Assistência social
+    resumo: >-
+      Manter, aperfeiçoar e ampliar os programas de proteção social, como o Bolsa Família, e
+      dar escala à Política Nacional de Cuidados (Cuidotecas, lavanderias e cozinhas públicas,
+      formação de cuidadores).
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 18, 19, 25 e 26)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Saúde
+    resumo: >-
+      Incluir exames laboratoriais no Farmácia Popular, ampliar o programa Agora tem
+      Especialistas e criar uma fila única digital para atenção especializada, ordenada por
+      risco clínico com apoio de inteligência artificial.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 36 a 38)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Educação
+    resumo: >-
+      Dar prioridade à expansão da educação em tempo integral, universalizar a internet nas
+      escolas, chegar a 80% das crianças alfabetizadas na idade certa, manter o Pé-de-Meia e
+      seguir expandindo os Institutos Federais.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 31 a 33)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Mulheres
+    resumo: >-
+      Manter o Pacto de Enfrentamento ao Feminicídio, concluir 30 Casas da Mulher Brasileira e
+      distribuir aos estados kits de monitoramento de agressores.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 21)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Moradia
+    resumo: >-
+      Manter e ampliar o Minha Casa Minha Vida para todas as faixas de renda, com foco nas
+      famílias de menor renda e uso de imóveis da União.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 45)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Meio ambiente
+    resumo: Alcançar o desmatamento líquido zero até 2030 e cumprir a nova meta climática (NDC) do país.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 70 e 71)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Energia
+    resumo: >-
+      Petrobras deve voltar ao segmento de distribuição de combustíveis e ampliar o refino;
+      manter a ampliação da mistura de biocombustíveis.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 67 e 68)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Instituições e democracia
+    resumo: >-
+      Avançar na regulação das redes sociais e plataformas digitais contra desinformação e
+      campanhas de ódio, e levar ao debate público o atual sistema de emendas parlamentares.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 15 e 16)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Gestão pública
+    resumo: >-
+      Aprofundar o Plano de Integridade e Combate à Corrupção 2025–2027, transformar o Portal da
+      Transparência em plataforma com dados abertos e inteligência artificial e ampliar os
+      serviços digitais do Gov.br.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 17 e 18)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+  - tema: Relações exteriores
+    resumo: >-
+      Política externa "independente e ativa": aprofundar o Mercosul, a aproximação com o BRICS
+      e o Sul Global, e defender a reforma do Conselho de Segurança da ONU.
+    fontes:
+      - titulo: Plano de governo registrado no TSE (p. 80 e 81)
+        url: https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+
+trajetoria:
+  - ano: 2025
+    titulo: Sancionou a isenção do Imposto de Renda para quem ganha até R$ 5 mil (Lei 15.270/2025)
+    resumo: >-
+      A lei também cria desconto para rendas até R$ 7.350 mensais e aumenta a tributação de
+      altas rendas. Vigora desde janeiro de 2026.
+    fontes:
+      - titulo: Lei nº 15.270/2025 — Planalto
+        url: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm
+  - ano: 2023
+    titulo: Reforma tributária do consumo (Emenda Constitucional 132/2023)
+    resumo: >-
+      Aprovada pelo Congresso e promulgada em dezembro de 2023, com articulação do governo.
+      Substitui gradualmente cinco tributos (PIS, Cofins, IPI, ICMS e ISS) por CBS e IBS.
+    fontes:
+      - titulo: Emenda Constitucional nº 132/2023 — Planalto
+        url: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm
+  - ano: 2023
+    titulo: Sancionou a Lei da Igualdade Salarial entre mulheres e homens (Lei 14.611/2023)
+    resumo: Obriga empresas a garantir salários iguais para a mesma função e a publicar relatórios de transparência salarial.
+    fontes:
+      - titulo: Lei nº 14.611/2023 — Planalto
+        url: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14611.htm
+  - ano: 2023
+    titulo: Presidente da República (3º mandato, 2023–2026)
+    resumo: Eleito em 2022.
+    fontes:
+      - titulo: Biografia do Presidente da República — Planalto
+        url: https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biografia-do-presidente
+  - ano: 2003
+    titulo: Presidente da República (2003–2010, dois mandatos)
+    resumo: Eleito em 2002 e reeleito em 2006.
+    fontes:
+      - titulo: Biografia — Galeria de ex-presidentes, Planalto
+        url: https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biblioteca-da-pr/ex-presidentes/luiz-inacio-lula-da-silva-2/biografia
+  - ano: 1987
+    titulo: Deputado federal constituinte (1987–1991)
+    resumo: Eleito em 1986 como o deputado federal mais votado do país; liderou a bancada do PT na Assembleia Nacional Constituinte.
+    fontes:
+      - titulo: Veja o perfil de Lula — Agência Câmara de Notícias
+        url: https://www.camara.leg.br/noticias/91015-veja-o-perfil-de-lula-o-presidente-reeleito-do-brasil/
+      - titulo: Biografia — Galeria de ex-presidentes, Planalto
+        url: https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biblioteca-da-pr/ex-presidentes/luiz-inacio-lula-da-silva-2/biografia
+  - ano: 1980
+    titulo: Fundador do Partido dos Trabalhadores (PT)
+    resumo: Fundado em 10 de fevereiro de 1980 por sindicalistas, intelectuais e movimentos sociais.
+    fontes:
+      - titulo: Biografia — Galeria de ex-presidentes, Planalto
+        url: https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biblioteca-da-pr/ex-presidentes/luiz-inacio-lula-da-silva-2/biografia
+  - ano: 1975
+    titulo: Presidente do Sindicato dos Metalúrgicos de São Bernardo do Campo e Diadema
+    resumo: Eleito com 92% dos votos; liderou as greves do ABC paulista no fim dos anos 1970.
+    fontes:
+      - titulo: Biografia — Galeria de ex-presidentes, Planalto
+        url: https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biblioteca-da-pr/ex-presidentes/luiz-inacio-lula-da-silva-2/biografia
+
+conduta:
+  - tipo: criminal
+    situacao: anulado
+    titulo: Condenações da Operação Lava Jato (triplex do Guarujá e sítio de Atibaia)
+    status: confirmado
+    nota_revisao: >-
+      Decisões encerradas e documentadas pelo STF. Conferir a redação sobre o período de prisão
+      (abr/2018 a nov/2019) e se "arquivou o caso do triplex por prescrição, a pedido do MPF"
+      descreve corretamente a decisão da 12ª Vara Federal do DF (jan/2022).
+    data: 2021-04-15
+    resumo: >-
+      Condenado em 2017 pela 13ª Vara Federal de Curitiba no caso do triplex, com condenação
+      confirmada pelo TRF-4 em 2018; ficou preso de abril de 2018 a novembro de 2019. Em 2021 o
+      STF anulou as condenações por entender que Curitiba não era o juízo competente (decisão do
+      ministro Fachin confirmada pelo Plenário por 8 a 3) e declarou a suspeição do ex-juiz
+      Sergio Moro. Os processos foram enviados à Justiça Federal do DF, que rejeitou a denúncia
+      do sítio de Atibaia (2021) e arquivou o caso do triplex por prescrição, a pedido do MPF
+      (2022). O mérito das acusações não voltou a ser julgado.
+    processo: HC 193.726 (STF) · HC 164.493 (STF, suspeição)
+    resposta: Lula sempre negou as acusações e afirma ter sido alvo de perseguição judicial.
+    fontes:
+      - titulo: Fachin anula condenações de Lula e manda ações para a Justiça Federal do DF
+        veiculo: STF
+        url: https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=461870&ori=1
+      - titulo: STF confirma anulação de condenações do ex-presidente Lula na Lava Jato
+        veiculo: STF
+        url: https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=464261&ori=1
+      - titulo: Sete ministros votam pela manutenção da suspeição do ex-juiz Sérgio Moro
+        veiculo: STF
+        url: https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=464602
+      - titulo: Justiça arquiva caso do tríplex contra Lula
+        veiculo: Poder360
+        url: https://www.poder360.com.br/justica/justica-arquiva-caso-do-triplex-contra-lula/
+      - titulo: Justiça do DF volta a rejeitar denúncia contra Lula no caso do sítio de Atibaia
+        veiculo: Poder360
+        url: https://www.poder360.com.br/justica/justica-do-df-volta-a-negar-denuncia-contra-lula-no-caso-do-sitio-de-atibaia/
+
+links:
+  - titulo: Biografia oficial — Planalto
+    url: https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biografia-do-presidente
