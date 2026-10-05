@@ -12,7 +12,7 @@ CARDS = RAIZ / "cards"            # imagens para redes sociais (não versionado)
 
 # Endereço do repositório público (ex.: "https://github.com/usuario/MeuRepresentante").
 # Habilita os links de correção e contribuição no site.
-REPO_URL = ""
+REPO_URL = "https://github.com/rmanosso/MeuRepresentantePolitico"
 INSTAGRAM = "@meurepresentantepolitico"
 
 ANO = 2026
