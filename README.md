@@ -1,5 +1,7 @@
 # Meu Representante · Eleições 2026
 
+Instagram: [@meurepresentantepolitico](https://www.instagram.com/meurepresentantepolitico/)
+
 Dossiê aberto, apartidário e com fontes sobre **quem disputa e quem foi eleito** em 2026:
 Presidência, Governos estaduais, Senado, Câmara dos Deputados e Assembleias Legislativas.
 
@@ -46,7 +48,7 @@ python MeuRepresentante.py novo-dossie 250002544912 # cria dados/dossies/SP/2500
 python MeuRepresentante.py validar                  # confere as regras editoriais
 python MeuRepresentante.py verificar-links          # confere se as fontes respondem
 python MeuRepresentante.py relatorio                # PDF para revisão jurídica (não publicar)
-python MeuRepresentante.py instagram --assinatura @arroba  # kit do Instagram (ver docs/INSTAGRAM.md)
+python MeuRepresentante.py instagram                # kit do Instagram (ver docs/INSTAGRAM.md)
 python MeuRepresentante.py cards --uf SP            # gera imagens 1080x1350 para Instagram em ./cards
 python MeuRepresentante.py cards --cargo PRESIDENTE --todos
 python MeuRepresentante.py cards --segundo-turno         # um card "A x B" por disputa de 2º turno

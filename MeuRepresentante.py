@@ -162,7 +162,7 @@ def main():
     sub.add_parser("tudo", help="importar + validar + site")
     sub.add_parser("relatorio", help="PDF para revisão jurídica (inclui itens não publicados)")
     p = sub.add_parser("instagram", help="kit do Instagram: foto de perfil, destaques e carrossel de lançamento")
-    p.add_argument("--assinatura", default="@meurepresentante", help="arroba ou site exibido no rodapé")
+    p.add_argument("--assinatura", default=config.INSTAGRAM, help="arroba ou site exibido no rodapé")
     p = sub.add_parser("verificar-links", help="confere se as fontes dos dossiês respondem")
     p.add_argument("--privados", action="store_true", help="inclui os itens em conferência")
     p = sub.add_parser("triagem", help="checagem automática de uma sugestão (texto com links)")
@@ -182,7 +182,7 @@ def main():
     p.add_argument("--todos", action="store_true", help="inclui candidatos sem dossiê")
     p.add_argument("--segundo-turno", action="store_true", help="um card comparativo por disputa de 2º turno")
     p.add_argument("--sim", action="store_true", help="confirma geração de muitos cards")
-    p.add_argument("--site-url", default="", help="endereço exibido no rodapé do card")
+    p.add_argument("--site-url", default=config.INSTAGRAM, help="endereço exibido no rodapé do card")
     args = ap.parse_args()
 
     if args.cmd == "importar":

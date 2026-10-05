@@ -1,6 +1,6 @@
 # Instagram: guia do perfil e das primeiras postagens
 
-As imagens saem de `python MeuRepresentante.py instagram --assinatura @SEU_ARROBA`, na pasta `instagram/`.
+As imagens saem de `python MeuRepresentante.py instagram` (assinatura padrão: **@meurepresentantepolitico**, definida em `meurep/config.py`), na pasta `instagram/`.
 Os cards de candidatos saem de `cards --segundo-turno` e `cards --id ...`, na pasta `cards/`.
 
 ## 1. Configuração do perfil
@@ -9,10 +9,13 @@ Os cards de candidatos saem de `cards --segundo-turno` e `cards --id ...`, na pa
 |---|---|
 | **Tipo de conta** | Profissional, categoria **Comunidade** (ou *Organização sem fins lucrativos*, se o projeto for formalizado). Libera estatísticas. |
 | **Foto** | `instagram/perfil.png`, o triângulo dos três pilares. Funciona bem recortada em círculo. |
-| **Nome** (aparece na busca) | `Meu Representante \| Eleições 2026` |
+| **Usuário** | `@meurepresentantepolitico` |
+| **Nome** (aparece na busca) | `Meu Representante Político \| Eleições 2026` |
 | **Bio** | Escolha uma das opções abaixo (todas têm até 150 caracteres). |
 | **Link** | Endereço do site assim que publicado no GitHub Pages. Enquanto isso, o link do repositório. |
-| **Contato** | Um e-mail do projeto, não o pessoal (ex.: contato.meurepresentante@...). |
+| **Contato** | Um e-mail do projeto, não o pessoal (ex.: meurepresentantepolitico@gmail.com). |
+
+**Endereços alinhados:** Instagram `@meurepresentantepolitico`, repositório `MeuRepresentantePolitico` no GitHub e, se possível, o domínio `meurepresentantepolitico.com.br`. O nome da marca continua "Meu Representante".
 
 **Opções de bio**
 

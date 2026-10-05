@@ -268,10 +268,10 @@ def card_comparacao(a: dict, b: dict, destino: Path, site_url: str = "", data_2t
             y += 42
 
     d.rectangle((0, A - 120, L, A), fill=(236, 235, 232))
-    d.text((MARGEM, A - 100), "Resumo dos planos de governo registrados no TSE. Trajetória, conduta",
+    d.text((MARGEM, A - 100), "Resumo dos planos de governo do TSE. Trajetória, conduta e fontes no site.",
            font=fonte(23), fill=TINTA_2)
-    d.text((MARGEM, A - 72), "e todas as fontes no site. Investigação não é condenação. Fotos: TSE.", font=fonte(23), fill=TINTA_2)
-    d.text((L - MARGEM, A - 72), site_url, font=fonte(26, True), fill=TINTA, anchor="ra")
+    d.text((MARGEM, A - 64), "Investigação não é condenação. Fotos: TSE.", font=fonte(23), fill=TINTA_2)
+    d.text((L - MARGEM, A - 66), site_url, font=fonte(26, True), fill=TINTA, anchor="ra")
     destino.parent.mkdir(parents=True, exist_ok=True)
     img.save(destino, optimize=True)
     return destino
