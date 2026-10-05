@@ -19,7 +19,7 @@ import json
 import sys
 import unicodedata
 
-from meurep import cards, config, dossies, links, relatorio, site, tse
+from meurep import cards, config, dossies, instagram, links, relatorio, site, tse
 
 BASE = config.CACHE / "base_tse.json"
 
@@ -134,6 +134,15 @@ def cmd_triagem(args):
     print(links.triagem(texto))
 
 
+def cmd_instagram(args):
+    candidatos, _ = montar()
+    disputas = sorted({(c["uf"], c["cargo"]) for c in candidatos if c["resultado"] == "segundo_turno"},
+                      key=lambda d: (config.ORDEM_CARGOS.index(d[1]), d[0]))
+    rotulos = ["Presidência" if uf == "BR" else f"Governo {uf}" for uf, _ in disputas]
+    for p in instagram.gerar(args.assinatura, rotulos):
+        print(" ", p.relative_to(config.RAIZ))
+
+
 def cmd_servir(args):
     if not config.SAIDA.exists():
         sys.exit("Gere o site antes: python MeuRepresentante.py site")
@@ -152,6 +161,8 @@ def main():
     sub.add_parser("site", help="gera o site estático")
     sub.add_parser("tudo", help="importar + validar + site")
     sub.add_parser("relatorio", help="PDF para revisão jurídica (inclui itens não publicados)")
+    p = sub.add_parser("instagram", help="kit do Instagram: foto de perfil, destaques e carrossel de lançamento")
+    p.add_argument("--assinatura", default="@meurepresentante", help="arroba ou site exibido no rodapé")
     p = sub.add_parser("verificar-links", help="confere se as fontes dos dossiês respondem")
     p.add_argument("--privados", action="store_true", help="inclui os itens em conferência")
     p = sub.add_parser("triagem", help="checagem automática de uma sugestão (texto com links)")
@@ -195,6 +206,8 @@ def main():
         cmd_relatorio(args)
     elif args.cmd == "verificar-links":
         cmd_verificar_links(args)
+    elif args.cmd == "instagram":
+        cmd_instagram(args)
     elif args.cmd == "triagem":
         cmd_triagem(args)
 

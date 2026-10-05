@@ -177,7 +177,7 @@ def card(c: dict, destino: Path, site_url: str = "") -> Path:
 
     # rodapé
     d.rectangle((0, A - 110, L, A), fill=(236, 235, 232))
-    d.text((MARGEM, A - 88), "Fontes: TSE e referências citadas no site. Investigação não é condenação.",
+    d.text((MARGEM, A - 88), "Fontes e foto: TSE e referências citadas no site. Investigação não é condenação.",
            font=fonte(24), fill=TINTA_2)
     d.text((MARGEM, A - 52), site_url or "Projeto cidadão e apartidário", font=fonte(28, True), fill=TINTA)
 
@@ -270,7 +270,7 @@ def card_comparacao(a: dict, b: dict, destino: Path, site_url: str = "", data_2t
     d.rectangle((0, A - 120, L, A), fill=(236, 235, 232))
     d.text((MARGEM, A - 100), "Resumo dos planos de governo registrados no TSE. Trajetória, conduta",
            font=fonte(23), fill=TINTA_2)
-    d.text((MARGEM, A - 72), "e todas as fontes no site. Investigação não é condenação.", font=fonte(23), fill=TINTA_2)
+    d.text((MARGEM, A - 72), "e todas as fontes no site. Investigação não é condenação. Fotos: TSE.", font=fonte(23), fill=TINTA_2)
     d.text((L - MARGEM, A - 72), site_url, font=fonte(26, True), fill=TINTA, anchor="ra")
     destino.parent.mkdir(parents=True, exist_ok=True)
     img.save(destino, optimize=True)
