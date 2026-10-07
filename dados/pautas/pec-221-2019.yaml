@@ -1,0 +1,62 @@
+# Pauta acompanhada. A tramitação vem das APIs da Câmara e do Senado; aqui só o que exige curadoria, com fonte.
+id: pec-221-2019
+tipo: PEC
+casa_iniciadora: CD       # começou na Câmara; no Senado manteve o número PEC 221/2019
+camara_id: 2233802
+senado_id: 9056435
+titulo: Fim da escala 6x1 e jornada de 40 horas
+tema: Trabalho e emprego
+atualizado_em: '2026-10-07'
+relacionadas: [pec-12-2026]
+resumo: Reduz a jornada máxima de 44 para 40 horas semanais, com limite de 8 horas por dia e dois dias de descanso
+  remunerado por semana, um preferencialmente no domingo, sem redução de salário. Na transição, a jornada cai para 42
+  horas dois meses após a publicação e para 40 horas 12 meses depois disso. Acordos coletivos podem compensar horários
+  e, em serviços essenciais, acumular folgas no mês.
+resumo_fontes:
+- titulo: Câmara aprova em dois turnos fim da escala 6x1 com jornada máxima de 40 horas semanais
+  url: https://www.camara.leg.br/noticias/1277141-camara-aprova-em-dois-turnos-fim-da-escala-6x1-com-jornada-maxima-de-40-horas-semanais/
+  veiculo: Agência Câmara
+- titulo: PEC do fim da escala 6x1 já conta com relatório favorável na CCJ
+  url: https://www12.senado.leg.br/noticias/materias/2026/08/27/pec-do-fim-da-escala-6x1-ja-conta-com-relatorio-favoravel-na-ccj
+  veiculo: Agência Senado
+contexto: Reúne a PEC 221/2019, do deputado Reginaldo Lopes (PT-MG), e a PEC 8/2025, da deputada Erika Hilton (PSOL-SP),
+  com relatoria de Leo Prates (Republicanos-BA) na Câmara. No Senado, o relator Omar Aziz (PSD-AM) manteve o texto da
+  Câmara e rejeitou as 36 emendas apresentadas na CCJ. A PEC 12/2026, que propõe jornada por hora, tramita no Senado
+  como alternativa defendida pela oposição.
+contexto_fontes:
+- titulo: Câmara aprova em dois turnos fim da escala 6x1 com jornada máxima de 40 horas semanais
+  url: https://www.camara.leg.br/noticias/1277141-camara-aprova-em-dois-turnos-fim-da-escala-6x1-com-jornada-maxima-de-40-horas-semanais/
+  veiculo: Agência Câmara
+- titulo: PEC que acaba com escala 6x1 começa a tramitar no Plenário
+  url: https://www12.senado.leg.br/noticias/materias/2026/10/06/pec-que-acaba-com-escala-6x1-comeca-a-tramitar-no-plenario
+  veiculo: Agência Senado
+debate:
+  a_favor:
+  - quem: Centrais sindicais
+    argumento: Dizem que a redução protege a saúde, diminui acidentes, gera empregos ao redistribuir o trabalho e dá mais
+      tempo para família, descanso e formação, preservando a negociação coletiva.
+    fontes:
+    - titulo: Redução da jornada, CUT e centrais rebatem ofensiva patronal
+      url: https://www.cut.org.br/noticias/reducao-da-jornada-cut-e-centrais-rebatem-ofensiva-patronal-1caa
+      veiculo: CUT
+  - quem: Senador Paulo Paim (PT-RS)
+    argumento: Afirma que a redução moderniza a economia, aumenta a produtividade e pode criar 4,5 milhões de empregos.
+    fontes:
+    - titulo: PEC que acaba com escala 6x1 começa a tramitar no Plenário
+      url: https://www12.senado.leg.br/noticias/materias/2026/10/06/pec-que-acaba-com-escala-6x1-comeca-a-tramitar-no-plenario
+      veiculo: Agência Senado
+  contra:
+  - quem: Confederação Nacional da Indústria (CNI)
+    argumento: Projeta aumento de custos de 6% a 9% em alguns setores, pressão sobre preços e impacto maior em micro e
+      pequenas empresas, e pede debate técnico fora do calendário eleitoral.
+    fontes:
+    - titulo: CNI critica PEC do fim da escala 6x1 e pede debate técnico no Senado
+      url: https://movimentoeconomico.com.br/economia/industria-empresas/2026/05/28/cni-critica-pec-do-fim-da-escala-6x1-e-pede-debate-tecnico-no-senado/
+      veiculo: Movimento Econômico
+  - quem: Senador Oriovisto Guimarães (PSDB-PR)
+    argumento: Considera insuficientes os dois meses de transição e diz que o texto precisa de aperfeiçoamento para não
+      criar novos problemas.
+    fontes:
+    - titulo: PEC que acaba com escala 6x1 começa a tramitar no Plenário
+      url: https://www12.senado.leg.br/noticias/materias/2026/10/06/pec-que-acaba-com-escala-6x1-comeca-a-tramitar-no-plenario
+      veiculo: Agência Senado

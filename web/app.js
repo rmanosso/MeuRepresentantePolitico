@@ -605,8 +605,20 @@ const COR_PODER = { congresso: "var(--cor-congresso)", judiciario: "var(--cor-ju
 const corPoder = (p) => COR_PODER[p] || estado.meta.pilares[p === "executivo" ? "executivo" : p]?.cor || "var(--tinta-2)";
 const dataBR = (iso) => (iso ? iso.slice(0, 10).split("-").reverse().join("/") : "");
 const diasDesde = (iso) => Math.max(0, Math.round((Date.now() - new Date(iso + "T12:00:00")) / 864e5));
+const dias = (n) => `${n} ${n === 1 ? "dia" : "dias"}`;
 const fontesLinks = (fs) => (fs || []).map((f) =>
   `<a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(f.veiculo || f.titulo)}</a>`).join(" · ");
+const placarTxt = (v) => `${v.placar.turno === "primeiro" || v.placar.turno === "1" ? "1º" : "2º"} turno: ${v.placar.sim} a ${v.placar.nao}`;
+const placares = (evs) => evs.filter((v) => v.placar).sort((a, b) => (a.data + a.placar.turno).localeCompare(b.data + b.placar.turno));
+
+function listaEventos(evs, limite = 12) {
+  const li = (v) => `<li><time>${dataBR(v.data)}</time> <b>${esc(v.orgao || "")}</b> ${esc(v.texto)}${
+    v.placar ? ` <span class="placar">${v.placar.sim} sim · ${v.placar.nao} não</span>` : ""}</li>`;
+  if (evs.length <= limite) return `<ol class="historico">${evs.map(li).join("")}</ol>`;
+  return `<ol class="historico">${evs.slice(0, limite).map(li).join("")}</ol>
+    <details class="mais-eventos"><summary>Ver os outros ${evs.length - limite} eventos</summary>
+      <ol class="historico">${evs.slice(limite).map(li).join("")}</ol></details>`;
+}
 
 async function telaPautas() {
   const lista = await json("dados/pautas.json");
@@ -617,17 +629,19 @@ async function telaPautas() {
       <p>Propostas que mudam a vida da população, acompanhadas etapa por etapa até virarem (ou não) regra.
          A situação vem direto das bases oficiais da Câmara e do Senado e é atualizada várias vezes por dia.</p>
     </section>
-    <div class="pautas-lista">
-      ${lista.map((p) => `
-        <a class="pauta-cartao" href="#/pauta/${esc(p.id)}">
-          <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")}</span>
-          <strong>${esc(p.titulo)}</strong>
-          <span class="mini-percurso" aria-hidden="true">${p.progresso.map((e) => `<i class="mp-${e}"></i>`).join("")}</span>
-          <span class="pauta-situacao">${p.tramitando ? "" : "Encerrada · "}${esc(p.situacao)}${p.local ? ` · ${esc(p.local)}` : ""}</span>
-        </a>`).join("")}
-    </div>
+    <div class="pautas-lista">${lista.map(cartaoPauta).join("")}</div>
     <p class="texto nota">Quer sugerir uma pauta? <a href="${esc(urlSugestaoPauta())}">Envie pelo GitHub</a>.
       Entram propostas em votação ou com urgência aprovada, sempre com o mesmo critério para todos os lados.</p>`;
+}
+
+function cartaoPauta(p) {
+  return `
+    <a class="pauta-cartao" href="#/pauta/${esc(p.id)}">
+      <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")}</span>
+      <strong>${esc(p.titulo)}</strong>
+      <span class="mini-percurso" aria-hidden="true">${p.progresso.map((e) => `<i class="mp-${e}"></i>`).join("")}</span>
+      <span class="pauta-situacao">${p.tramitando ? "" : "Encerrada · "}${esc(p.situacao)}${p.local ? ` · ${esc(p.local)}` : ""}</span>
+    </a>`;
 }
 
 function urlSugestaoPauta() {
@@ -640,6 +654,8 @@ async function telaPauta(id) {
   try { p = await json(`dados/pauta/${encodeURIComponent(id)}.json`); } catch { return telaNaoEncontrada(); }
   document.title = `${p.identificacao} · ${p.titulo} · Meu Representante`;
   const atual = p.etapas.find((e) => e.estado === "atual") || p.etapas[p.etapas.length - 1];
+  const relacionadas = p.relacionadas?.length
+    ? (await json("dados/pautas.json")).filter((x) => p.relacionadas.includes(x.id)) : [];
   const poderes = [
     ["Senado", estado.meta.pilares.senado.cor, true],
     ["Câmara", estado.meta.pilares.camara.cor, true],
@@ -662,12 +678,12 @@ async function telaPauta(id) {
   app.innerHTML = `
     <nav class="migalha"><a href="#/pautas">Pautas</a> › ${esc(p.identificacao)}</nav>
     <header class="pauta-topo">
-      <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")} · começou no ${esc(p.casa_iniciadora)}</span>
+      <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")} · começou ${p.casa_iniciadora === "Câmara" ? "na" : "no"} ${esc(p.casa_iniciadora)}</span>
       <h1>${esc(p.titulo)}</h1>
       <div class="agora ${p.tramitando ? "" : "agora-encerrada"}">
         <span>${p.tramitando ? "Onde está agora" : "Tramitação encerrada"}</span>
         <strong>${esc(p.situacao)}</strong>
-        <small>${esc(p.local || "")}${p.desde ? ` · desde ${dataBR(p.desde)} (${diasDesde(p.desde)} dias)` : ""}</small>
+        <small>${esc(p.local || "")}${p.desde ? ` · desde ${dataBR(p.desde)} (${dias(diasDesde(p.desde))})` : ""}</small>${p.eventos.length ? `<small class="ultimo">Último registro oficial, ${dataBR(p.eventos[0].data)}: ${esc(p.eventos[0].texto)}</small>` : ""}
       </div>
     </header>
 
@@ -684,6 +700,7 @@ async function telaPauta(id) {
               <span class="ponto">${e.estado === "feita" ? "✓" : i + 1}</span>
               <span class="estacao-nome">${esc(e.nome)}</span>
               <span class="estacao-casa">${esc(e.casa_nome)}${e.estado === "atual" ? " · agora" : ""}</span>
+              ${placares(e.eventos).length ? `<span class="estacao-placar">${placares(e.eventos).map((v) => `${v.placar.sim} a ${v.placar.nao}`).join(" · ")}</span>` : ""}
             </button>
           </li>`).join("")}
         <li class="estacao estacao-ramo" style="--cor:var(--cor-judiciario)">
@@ -704,16 +721,19 @@ async function telaPauta(id) {
       ${p.contexto ? `<h3>Contexto</h3><p>${esc(p.contexto)}</p><small class="fonte">Fontes: ${fontesLinks(p.contexto_fontes)}</small>` : ""}
     </section>
     ${debate}
+    ${relacionadas.length ? `<section class="bloco"><h2>Pautas relacionadas</h2>
+      <div class="pautas-lista">${relacionadas.map(cartaoPauta).join("")}</div></section>` : ""}
     <section class="bloco">
       <h2>Quem apresentou</h2>
-      <p>${p.autores.length} parlamentar(es), apresentada em ${dataBR(p.apresentacao)}.</p>
+      <p>${p.autores.length === 1 ? `Apresentada por ${esc(p.autores[0].nome)}` : `${p.autores.length} parlamentares`}
+        em ${dataBR(p.apresentacao)}.</p>
       <details><summary>Ver lista de autores</summary>
         <ul class="autores">${p.autores.map((a) => `<li>${esc(a.nome)} <small>${esc(a.partido || "")}${a.uf ? "-" + esc(a.uf) : ""}</small></li>`).join("")}</ul>
       </details>
     </section>
     <section class="bloco">
       <h2>Histórico oficial</h2>
-      <ol class="historico">${p.eventos.map((e) => `<li><time>${dataBR(e.data)}</time> <b>${esc(e.orgao || "")}</b> ${esc(e.texto)}</li>`).join("")}</ol>
+      ${listaEventos(p.eventos, 15)}
       <p class="links-oficiais">${p.links.map((l) => `<a href="${esc(l.url)}" rel="noopener" target="_blank">${esc(l.titulo)} ↗</a>`).join(" · ")}</p>
       <p class="nota">Atualizado automaticamente a partir dos dados abertos da Câmara e do Senado. Resumo e debate revisados em ${dataBR(p.atualizado_em)}.</p>
     </section>`;
@@ -723,9 +743,10 @@ async function telaPauta(id) {
     const e = i === "stf" ? { ...p.judiciario, estado: "ramo", eventos: [] } : p.etapas[+i];
     const rotulo = { feita: "Etapa concluída", atual: "Etapa atual", futura: "Etapa futura", ramo: "Caminho possível" }[e.estado];
     detalhe.style.setProperty("--cor", i === "stf" ? "var(--cor-judiciario)" : corPoder(e.poder));
-    detalhe.innerHTML = `<span class="etapa-rotulo">${rotulo}</span><h3>${esc(e.nome)}</h3><p>${esc(e.explica)}</p>
-      ${e.eventos.length ? `<ol class="historico">${e.eventos.map((v) => `<li><time>${dataBR(v.data)}</time> <b>${esc(v.orgao || "")}</b> ${esc(v.texto)}</li>`).join("")}</ol>`
-        : e.estado === "futura" ? `<p class="nota">Ainda não chegou aqui.</p>` : ""}`;
+    const votos = placares(e.eventos);
+    detalhe.innerHTML = `<span class="etapa-rotulo">${rotulo}</span><h3>${esc(e.nome)} · ${esc(e.casa_nome || "")}</h3><p>${esc(e.explica)}</p>
+      ${votos.length ? `<p class="votos">${votos.map((v) => `<span class="placar">${placarTxt(v)}</span>`).join(" ")}</p>` : ""}
+      ${e.eventos.length ? listaEventos(e.eventos) : e.estado === "futura" ? `<p class="nota">Ainda não chegou aqui.</p>` : ""}`;
     app.querySelectorAll(".percurso button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.i === String(i))));
   };
   app.querySelectorAll(".percurso button").forEach((b) => b.addEventListener("click", () => mostrar(b.dataset.i)));

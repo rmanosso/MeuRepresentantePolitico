@@ -120,6 +120,7 @@ def _senado(pid: int) -> dict | None:
 def _camara(pid: int) -> dict | None:
     p = _get(API_CAMARA.format(id=pid), f"camara_{pid}")
     t = _get(API_CAMARA.format(id=pid) + "/tramitacoes", f"camara_{pid}_tram")
+    au = _get(API_CAMARA.format(id=pid) + "/autores", f"camara_{pid}_autores") or {"dados": []}
     if not p or not t:
         return None
     d = p["dados"]
@@ -137,28 +138,51 @@ def _camara(pid: int) -> dict | None:
         "norma": None,
         "ementa": d.get("ementa"),
         "apresentacao": (d.get("dataApresentacao") or "")[:10],
-        "autores": [],
+        "autores": [{"nome": a["nome"], "partido": None, "uf": None, "cargo": a.get("tipo")}
+                    for a in au["dados"] if a.get("proponente")],
         "texto_url": d.get("urlInteiroTeor"),
         "pagina": PAGINA_CAMARA.format(id=pid),
         "identificacao": f"{d.get('siglaTipo')} {d.get('numero')}/{d.get('ano')}",
     }
 
 
-def _etapa_do_evento(ev: dict, ini: str, tipo: str) -> str:
-    """Classifica um evento oficial numa etapa do percurso (regras simples e auditáveis)."""
+# Órgãos de plenário/mesa: atos administrativos deles herdam a etapa em que a proposta já estava.
+ORGAOS_PLENARIO = {"PLEN", "MESA", "SGM", "CCP", "SLSF", "SEADI"}
+PLACAR = re.compile(r"sim:?\s*(\d+)\s*;?\s*não:?\s*(\d+)", re.I)
+
+
+def _etapa_do_evento(ev: dict, ini: str, tipo: str) -> str | None:
+    """Classifica um evento oficial numa etapa do percurso (regras simples e auditáveis).
+    Devolve None quando o evento é administrativo e deve herdar a etapa anterior."""
     txt = ev["texto"].lower()
     if tipo != "PEC" and re.search(r"sanção|sancionad|vetad|veto", txt):
         return "vetos" if "derrub" in txt or "manuten" in txt else "sancao"
     if re.search(r"promulgad", txt):
         return "promulgacao" if tipo == "PEC" else "lei"
     lado = "ini" if ev["casa"] == ini else "rev"
-    if ev["orgao"] == "PLEN":
-        if re.search(r"turno|aprovad|votaç|discussão|ordem do dia|rejeitad", txt):
+    if ev["orgao"] in ORGAOS_PLENARIO:
+        if re.search(r"turno|votaç|ordem do dia|discussão", txt) or (
+                re.search(r"aprovad|rejeitad", txt) and "requerimento" not in txt):
             return f"plenario_{lado}"
-        if lado == "ini" and re.search(r"remetid|enviad|vai à câmara|vai ao senado", txt):
+        if lado == "ini" and re.search(r"remetid|remessa|vai à câmara|vai ao senado", txt):
             return "plenario_ini"
-        return "apresentacao" if lado == "ini" else f"comissoes_{lado}"
+        return None
     return f"comissoes_{lado}"
+
+
+def _classificar(eventos: list[dict], ini: str, tipo: str) -> None:
+    """Etapa de cada evento (em ordem cronológica); administrativos herdam a anterior."""
+    anterior, casa_ant = "apresentacao", ini
+    for ev in eventos:
+        etapa = _etapa_do_evento(ev, ini, tipo)
+        if etapa is None:
+            # primeiro ato na outra Casa abre a fase de comissões dela; senão, segue onde estava
+            etapa = f"comissoes_{'ini' if ev['casa'] == ini else 'rev'}" if ev["casa"] != casa_ant else anterior
+        ev["etapa"], anterior, casa_ant = etapa, etapa, ev["casa"]
+        m = PLACAR.search(ev["texto"])
+        turno = re.search(r"(primeiro|segundo|1º|2º) turno", ev["texto"], re.I)
+        if m and turno and "requerimento" not in ev["texto"].lower():  # só votações da proposta, não de requerimentos
+            ev["placar"] = {"sim": int(m[1]), "nao": int(m[2]), "turno": turno[1].lower().replace("º", "")}
 
 
 def montar(cfg: dict) -> dict:
@@ -172,8 +196,7 @@ def montar(cfg: dict) -> dict:
     eventos = sorted(base["eventos"] + (fontes[rev]["eventos"] if fontes[rev] else []), key=lambda e: e["data"])
     percurso = PERCURSOS[tipo]
     ordem = [e["id"] for e in percurso]
-    for ev in eventos:
-        ev["etapa"] = _etapa_do_evento(ev, ini, tipo)
+    _classificar(eventos, ini, tipo)
     atual_doc = fontes[rev] if fontes[rev] else base  # a Casa onde a proposta está agora
     feitas = [ordem.index(ev["etapa"]) for ev in eventos if ev["etapa"] in ordem]
     i_atual = max(feitas, default=0)
@@ -196,7 +219,7 @@ def montar(cfg: dict) -> dict:
 
     return {
         **{k: cfg.get(k) for k in ("id", "tipo", "titulo", "tema", "resumo", "resumo_fontes", "contexto",
-                                   "contexto_fontes", "debate", "atualizado_em")},
+                                   "contexto_fontes", "debate", "atualizado_em", "relacionadas")},
         "identificacao": base["identificacao"],
         "casa_iniciadora": CASAS[ini],
         "ementa": base["ementa"],

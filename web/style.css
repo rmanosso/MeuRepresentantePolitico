@@ -355,3 +355,12 @@ main { max-width: 1100px; margin: 0 auto; padding: 16px; min-height: 70vh; outli
 .autores { columns: 2 220px; font-size: 14px; padding-left: 18px; }
 .autores small { color: var(--tinta-2); }
 .links-oficiais a { color: var(--destaque); font-weight: 600; }
+.placar { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px;
+  background: var(--eleito-fundo); color: var(--eleito); white-space: nowrap; }
+.votos { display: flex; flex-wrap: wrap; gap: 6px; }
+.votos .placar { font-size: 14px; padding: 4px 12px; }
+.estacao-placar { font-size: 12px; font-weight: 700; color: var(--eleito); }
+.mais-eventos { margin-top: 8px; }
+.mais-eventos summary { cursor: pointer; color: var(--destaque); font-weight: 600; font-size: 14px; }
+.bloco .pautas-lista { max-width: none; }
+.agora .ultimo { margin-top: 6px; color: var(--tinta); }

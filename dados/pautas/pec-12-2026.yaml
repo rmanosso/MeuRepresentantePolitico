@@ -8,6 +8,7 @@ camara_id:                # id na API da Câmara, quando chegar lá
 titulo: Jornada de trabalho por hora
 tema: Trabalho e emprego
 atualizado_em: '2026-10-07'
+relacionadas: [pec-221-2019]
 resumo: Altera o artigo 7º da Constituição para permitir que o empregado escolha entre a jornada comum da CLT e um
   regime flexível baseado em horas trabalhadas, com remuneração, férias, 13º salário e FGTS proporcionais às horas.
   O contrato individual prevaleceria sobre acordos coletivos.
