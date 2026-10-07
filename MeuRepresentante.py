@@ -135,6 +135,12 @@ def cmd_triagem(args):
 
 
 def cmd_instagram(args):
+    if args.pautas:  # carrossel "onde está cada proposta" com a situação do site gerado
+        from datetime import date
+        ids = [i.strip() for i in args.pautas.split(",")]
+        for p in instagram.carrossel_pautas(args.assinatura, ids, date.today().strftime("%d/%m/%Y")):
+            print(" ", p.relative_to(config.RAIZ))
+        return
     candidatos, _ = montar()
     disputas = sorted({(c["uf"], c["cargo"]) for c in candidatos if c["resultado"] == "segundo_turno"},
                       key=lambda d: (config.ORDEM_CARGOS.index(d[1]), d[0]))
@@ -163,6 +169,7 @@ def main():
     sub.add_parser("relatorio", help="PDF para revisão jurídica (inclui itens não publicados)")
     p = sub.add_parser("instagram", help="kit do Instagram: foto de perfil, destaques e carrossel de lançamento")
     p.add_argument("--assinatura", default=config.INSTAGRAM, help="arroba ou site exibido no rodapé")
+    p.add_argument("--pautas", help="ids separados por vírgula: gera o carrossel das pautas (rode 'site' antes)")
     p = sub.add_parser("verificar-links", help="confere se as fontes dos dossiês respondem")
     p.add_argument("--privados", action="store_true", help="inclui os itens em conferência")
     p = sub.add_parser("triagem", help="checagem automática de uma sugestão (texto com links)")

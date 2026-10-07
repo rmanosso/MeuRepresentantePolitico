@@ -219,7 +219,7 @@ def montar(cfg: dict) -> dict:
 
     return {
         **{k: cfg.get(k) for k in ("id", "tipo", "titulo", "tema", "resumo", "resumo_fontes", "contexto",
-                                   "contexto_fontes", "debate", "atualizado_em", "relacionadas")},
+                                   "contexto_fontes", "debate", "atualizado_em", "relacionadas", "pontos")},
         "identificacao": base["identificacao"],
         "casa_iniciadora": CASAS[ini],
         "ementa": base["ementa"],
