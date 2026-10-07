@@ -114,6 +114,8 @@ function telaInicio() {
           </a>`).join("")}
       </div>
     </section>
+    <a class="convite convite-pautas" href="#/pautas"><strong>Pautas em andamento:</strong> veja em que etapa estão as
+      propostas que mudam a sua vida, do Congresso à Presidência e ao STF. →</a>
     <a class="convite" href="#/colabore"><strong>Projeto aberto:</strong> envie informações com fonte e ajude a revisar,
       principalmente se você é da área jurídica ou de jornalismo. →</a>
     <section>
@@ -597,6 +599,139 @@ async function telaComparar(idA, idB) {
   }));
 }
 
+/* ---------- pautas: o percurso de uma proposta pelos poderes ---------- */
+
+const COR_PODER = { congresso: "var(--cor-congresso)", judiciario: "var(--cor-judiciario)" };
+const corPoder = (p) => COR_PODER[p] || estado.meta.pilares[p === "executivo" ? "executivo" : p]?.cor || "var(--tinta-2)";
+const dataBR = (iso) => (iso ? iso.slice(0, 10).split("-").reverse().join("/") : "");
+const diasDesde = (iso) => Math.max(0, Math.round((Date.now() - new Date(iso + "T12:00:00")) / 864e5));
+const fontesLinks = (fs) => (fs || []).map((f) =>
+  `<a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(f.veiculo || f.titulo)}</a>`).join(" · ");
+
+async function telaPautas() {
+  const lista = await json("dados/pautas.json");
+  document.title = "Pautas em andamento · Meu Representante";
+  app.innerHTML = `
+    <section class="texto">
+      <h1>Pautas em andamento</h1>
+      <p>Propostas que mudam a vida da população, acompanhadas etapa por etapa até virarem (ou não) regra.
+         A situação vem direto das bases oficiais da Câmara e do Senado e é atualizada várias vezes por dia.</p>
+    </section>
+    <div class="pautas-lista">
+      ${lista.map((p) => `
+        <a class="pauta-cartao" href="#/pauta/${esc(p.id)}">
+          <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")}</span>
+          <strong>${esc(p.titulo)}</strong>
+          <span class="mini-percurso" aria-hidden="true">${p.progresso.map((e) => `<i class="mp-${e}"></i>`).join("")}</span>
+          <span class="pauta-situacao">${p.tramitando ? "" : "Encerrada · "}${esc(p.situacao)}${p.local ? ` · ${esc(p.local)}` : ""}</span>
+        </a>`).join("")}
+    </div>
+    <p class="texto nota">Quer sugerir uma pauta? <a href="${esc(urlSugestaoPauta())}">Envie pelo GitHub</a>.
+      Entram propostas em votação ou com urgência aprovada, sempre com o mesmo critério para todos os lados.</p>`;
+}
+
+function urlSugestaoPauta() {
+  const repo = estado.meta.repo_url;
+  return repo ? `${repo}/issues/new?labels=pauta&title=${encodeURIComponent("Sugestão de pauta: ")}` : "#/colabore";
+}
+
+async function telaPauta(id) {
+  let p;
+  try { p = await json(`dados/pauta/${encodeURIComponent(id)}.json`); } catch { return telaNaoEncontrada(); }
+  document.title = `${p.identificacao} · ${p.titulo} · Meu Representante`;
+  const atual = p.etapas.find((e) => e.estado === "atual") || p.etapas[p.etapas.length - 1];
+  const poderes = [
+    ["Senado", estado.meta.pilares.senado.cor, true],
+    ["Câmara", estado.meta.pilares.camara.cor, true],
+    ["Presidência", estado.meta.pilares.executivo.cor, !p.sem_sancao],
+    ["STF", "var(--cor-judiciario)", true],
+  ];
+  const debate = p.debate ? `
+    <section class="bloco" id="debate">
+      <h2>O debate</h2>
+      <p class="nota">Argumentos atribuídos a quem os defende, com fonte. O site não toma lado.</p>
+      <div class="debate">
+        ${[["a_favor", "Quem defende"], ["contra", "Quem critica"]].map(([k, rot]) => `
+          <div class="debate-lado debate-${k}"><h3>${rot}</h3>
+            ${(p.debate[k] || []).map((a) => `<div class="argumento"><strong>${esc(a.quem)}</strong>
+              <p>${esc(a.argumento)}</p><small>Fonte: ${fontesLinks(a.fontes)}</small></div>`).join("")}
+          </div>`).join("")}
+      </div>
+    </section>` : "";
+
+  app.innerHTML = `
+    <nav class="migalha"><a href="#/pautas">Pautas</a> › ${esc(p.identificacao)}</nav>
+    <header class="pauta-topo">
+      <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")} · começou no ${esc(p.casa_iniciadora)}</span>
+      <h1>${esc(p.titulo)}</h1>
+      <div class="agora ${p.tramitando ? "" : "agora-encerrada"}">
+        <span>${p.tramitando ? "Onde está agora" : "Tramitação encerrada"}</span>
+        <strong>${esc(p.situacao)}</strong>
+        <small>${esc(p.local || "")}${p.desde ? ` · desde ${dataBR(p.desde)} (${diasDesde(p.desde)} dias)` : ""}</small>
+      </div>
+    </header>
+
+    <section class="bloco" aria-labelledby="t-percurso">
+      <h2 id="t-percurso">O percurso até virar regra</h2>
+      <ul class="poderes" aria-label="Quem participa">
+        ${poderes.map(([n, cor, sim]) => `<li class="${sim ? "" : "fora"}" style="--cor:${cor}">${esc(n)}${sim ? "" : " · não participa"}</li>`).join("")}
+      </ul>
+      ${p.sem_sancao ? `<p class="nota">Emendas à Constituição não passam pela Presidência: não há sanção nem veto.</p>` : ""}
+      <ol class="percurso" role="tablist" aria-label="Etapas">
+        ${p.etapas.map((e, i) => `
+          <li class="estacao estacao-${e.estado}" style="--cor:${corPoder(e.poder)}">
+            <button role="tab" aria-selected="${e === atual}" aria-controls="etapa-detalhe" data-i="${i}">
+              <span class="ponto">${e.estado === "feita" ? "✓" : i + 1}</span>
+              <span class="estacao-nome">${esc(e.nome)}</span>
+              <span class="estacao-casa">${esc(e.casa_nome)}${e.estado === "atual" ? " · agora" : ""}</span>
+            </button>
+          </li>`).join("")}
+        <li class="estacao estacao-ramo" style="--cor:var(--cor-judiciario)">
+          <button role="tab" aria-selected="false" aria-controls="etapa-detalhe" data-i="stf">
+            <span class="ponto">⚖</span><span class="estacao-nome">${esc(p.judiciario.nome)}</span>
+            <span class="estacao-casa">Judiciário</span>
+          </button>
+        </li>
+      </ol>
+      <div id="etapa-detalhe" class="etapa-detalhe" role="tabpanel" aria-live="polite"></div>
+    </section>
+
+    <section class="bloco">
+      <h2>O que muda</h2>
+      <p>${esc(p.resumo)}</p>
+      <small class="fonte">Fonte: ${fontesLinks(p.resumo_fontes)}</small>
+      <details><summary>Ementa oficial</summary><p>${esc(p.ementa)}</p></details>
+      ${p.contexto ? `<h3>Contexto</h3><p>${esc(p.contexto)}</p><small class="fonte">Fontes: ${fontesLinks(p.contexto_fontes)}</small>` : ""}
+    </section>
+    ${debate}
+    <section class="bloco">
+      <h2>Quem apresentou</h2>
+      <p>${p.autores.length} parlamentar(es), apresentada em ${dataBR(p.apresentacao)}.</p>
+      <details><summary>Ver lista de autores</summary>
+        <ul class="autores">${p.autores.map((a) => `<li>${esc(a.nome)} <small>${esc(a.partido || "")}${a.uf ? "-" + esc(a.uf) : ""}</small></li>`).join("")}</ul>
+      </details>
+    </section>
+    <section class="bloco">
+      <h2>Histórico oficial</h2>
+      <ol class="historico">${p.eventos.map((e) => `<li><time>${dataBR(e.data)}</time> <b>${esc(e.orgao || "")}</b> ${esc(e.texto)}</li>`).join("")}</ol>
+      <p class="links-oficiais">${p.links.map((l) => `<a href="${esc(l.url)}" rel="noopener" target="_blank">${esc(l.titulo)} ↗</a>`).join(" · ")}</p>
+      <p class="nota">Atualizado automaticamente a partir dos dados abertos da Câmara e do Senado. Resumo e debate revisados em ${dataBR(p.atualizado_em)}.</p>
+    </section>`;
+
+  const detalhe = document.getElementById("etapa-detalhe");
+  const mostrar = (i) => {
+    const e = i === "stf" ? { ...p.judiciario, estado: "ramo", eventos: [] } : p.etapas[+i];
+    const rotulo = { feita: "Etapa concluída", atual: "Etapa atual", futura: "Etapa futura", ramo: "Caminho possível" }[e.estado];
+    detalhe.style.setProperty("--cor", i === "stf" ? "var(--cor-judiciario)" : corPoder(e.poder));
+    detalhe.innerHTML = `<span class="etapa-rotulo">${rotulo}</span><h3>${esc(e.nome)}</h3><p>${esc(e.explica)}</p>
+      ${e.eventos.length ? `<ol class="historico">${e.eventos.map((v) => `<li><time>${dataBR(v.data)}</time> <b>${esc(v.orgao || "")}</b> ${esc(v.texto)}</li>`).join("")}</ol>`
+        : e.estado === "futura" ? `<p class="nota">Ainda não chegou aqui.</p>` : ""}`;
+    app.querySelectorAll(".percurso button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.i === String(i))));
+  };
+  app.querySelectorAll(".percurso button").forEach((b) => b.addEventListener("click", () => mostrar(b.dataset.i)));
+  mostrar(p.etapas.indexOf(atual));
+}
+
 /* ---------- roteador ---------- */
 
 async function rotear() {
@@ -612,6 +747,8 @@ async function rotear() {
       case "colabore": telaColabore(); break;
       case "2turno": await tela2turno(); break;
       case "comparar": await telaComparar(partes[1], partes[2]); break;
+      case "pautas": await telaPautas(); break;
+      case "pauta": await telaPauta(partes[1]); break;
       default: telaNaoEncontrada();
     }
   } catch (e) {

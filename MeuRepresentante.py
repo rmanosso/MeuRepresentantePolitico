@@ -4,7 +4,7 @@ Uso:
     python MeuRepresentante.py tudo              # importa TSE, valida dossiês e gera o site
     python MeuRepresentante.py importar          # baixa/atualiza os dados abertos do TSE
     python MeuRepresentante.py validar           # confere as regras editoriais dos dossiês
-    python MeuRepresentante.py site              # gera o site em ./site
+    python MeuRepresentante.py site              # gera o site em ./site (inclui as pautas de dados/pautas)
     python MeuRepresentante.py servir            # abre o site em http://localhost:8000
     python MeuRepresentante.py buscar "nome"     # encontra o id de um candidato
     python MeuRepresentante.py novo-dossie ID    # cria o arquivo de dossiê de um candidato
@@ -19,7 +19,7 @@ import json
 import sys
 import unicodedata
 
-from meurep import cards, config, dossies, instagram, links, relatorio, site, tse
+from meurep import cards, config, dossies, instagram, links, pautas, relatorio, site, tse
 
 BASE = config.CACHE / "base_tse.json"
 
@@ -194,6 +194,7 @@ def main():
             carregar_base(forcar_importacao=True)
         candidatos, base = montar()
         site.gerar(candidatos, base["gerado_em"])
+        pautas.gerar(config.SAIDA / "dados")
     elif args.cmd == "servir":
         cmd_servir(args)
     elif args.cmd == "buscar":

@@ -24,6 +24,13 @@ ou por **busca**. Cada candidatura tem:
 **2º turno:** a página `#/2turno` lista as disputas e compara os dois candidatos lado a lado
 (propostas por tema, trajetória, conduta e dados oficiais).
 
+**Pautas em andamento:** a página `#/pautas` acompanha propostas importantes (PEC, PL, PLP) como um percurso
+pelos poderes, com a etapa atual destacada: Câmara e Senado, Presidência (sanção ou veto) e, se houver
+contestação, o STF. A tramitação vem automaticamente das APIs de dados abertos da
+[Câmara](https://dadosabertos.camara.leg.br/) e do [Senado](https://legis.senado.leg.br/dadosabertos/). Para
+acompanhar uma nova pauta, crie `dados/pautas/<id>.yaml` (veja `pec-12-2026.yaml`) com o identificador oficial,
+um resumo neutro e o debate com fontes, atribuído a quem defende e a quem critica.
+
 **Revisão:** só vai ao ar o que tem fonte oficial ou decisão encerrada, confirmado por duas fontes.
 Processos em andamento aguardam revisão jurídica ([docs/REVISAO.md](docs/REVISAO.md)).
 

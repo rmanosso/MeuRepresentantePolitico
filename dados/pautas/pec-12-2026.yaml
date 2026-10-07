@@ -1,0 +1,58 @@
+# Pauta acompanhada. A tramitação (etapa atual, eventos, autores) vem automaticamente
+# das APIs da Câmara e do Senado; aqui fica só o que exige curadoria, sempre com fonte.
+id: pec-12-2026
+tipo: PEC                 # PEC | PL | PLP | MPV — define o percurso
+casa_iniciadora: SF       # SF (Senado) | CD (Câmara)
+senado_id: 9055580        # id do processo na API do Senado (dadosabertos/processo/<id>)
+camara_id:                # id na API da Câmara, quando chegar lá
+titulo: Jornada de trabalho por hora
+tema: Trabalho e emprego
+atualizado_em: '2026-10-07'
+resumo: Altera o artigo 7º da Constituição para permitir que o empregado escolha entre a jornada comum da CLT e um
+  regime flexível baseado em horas trabalhadas, com remuneração, férias, 13º salário e FGTS proporcionais às horas.
+  O contrato individual prevaleceria sobre acordos coletivos.
+resumo_fontes:
+- titulo: Rogerio Marinho propõe PEC que flexibiliza jornada de trabalho
+  url: https://www12.senado.leg.br/noticias/materias/2026/05/28/rogerio-marinho-propoe-pec-que-flexibiliza-jornada-de-trabalho
+  veiculo: Agência Senado
+contexto: Tramita no Senado em paralelo à PEC que reduz a jornada e acaba com a escala 6x1, já aprovada pela Câmara.
+  Defensores e críticos apresentam as duas propostas como alternativas.
+contexto_fontes:
+- titulo: Redução da jornada, CUT e centrais rebatem ofensiva patronal
+  url: https://www.cut.org.br/noticias/reducao-da-jornada-cut-e-centrais-rebatem-ofensiva-patronal-1caa
+  veiculo: CUT
+- titulo: Oposição e empresários ampliam campanha por PEC que cria modelo de contratação por hora
+  url: https://www.moneytimes.com.br/oposicao-e-empresarios-ampliam-campanha-por-pec-que-cria-modelo-de-contratacao-por-hora-contraponto-ao-fim-da-jornada-6x1-gaep/
+  veiculo: Money Times
+# Os dois lados, sempre atribuídos a quem defende e com fonte; mesmo número de itens.
+debate:
+  a_favor:
+  - quem: Autor da PEC (senador Rogerio Marinho)
+    argumento: Amplia a liberdade do trabalhador de escolher quantas horas trabalhar e permite conciliar vida pessoal
+      e trabalho.
+    fontes:
+    - titulo: Rogerio Marinho propõe PEC que flexibiliza jornada de trabalho
+      url: https://www12.senado.leg.br/noticias/materias/2026/05/28/rogerio-marinho-propoe-pec-que-flexibiliza-jornada-de-trabalho
+      veiculo: Agência Senado
+  - quem: Entidades empresariais (CNI, Fiesp e CACB, em manifesto)
+    argumento: Dizem que o trabalhador poderia trabalhar menos horas para estudar ou cuidar dos filhos, ou mais em
+      períodos de alta demanda, mantendo direitos como 13º, férias e FGTS.
+    fontes:
+    - titulo: Em manifesto, entidades defendem aprovação de PEC que propõe jornada por hora trabalhada
+      url: https://www.bahianoticias.com.br/noticia/317705-em-manifesto-entidades-defendem-aprovacao-de-pec-da-oposicao-que-propoe-jornada-por-hora-trabalhada
+      veiculo: Bahia Notícias
+  contra:
+  - quem: Centrais sindicais
+    argumento: Afirmam que pagar só as horas trabalhadas transfere ao trabalhador os riscos da atividade econômica,
+      torna a renda instável e que o acordo individual acima do coletivo enfraquece os sindicatos.
+    fontes:
+    - titulo: Redução da jornada, CUT e centrais rebatem ofensiva patronal
+      url: https://www.cut.org.br/noticias/reducao-da-jornada-cut-e-centrais-rebatem-ofensiva-patronal-1caa
+      veiculo: CUT
+  - quem: Deputada Erika Hilton (PSOL-SP)
+    argumento: Afirma que a medida pode levar a escalas mais longas, como a 7x1, na contramão da discussão sobre o
+      fim da escala 6x1.
+    fontes:
+    - titulo: Reportagem sobre a PEC 12/2026 e as críticas à proposta
+      url: https://almapreta.com.br/sessao/politica/senado-pec-contra-clt/
+      veiculo: Alma Preta
