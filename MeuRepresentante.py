@@ -138,7 +138,10 @@ def cmd_instagram(args):
     if args.pautas:  # carrossel "onde está cada proposta" com a situação do site gerado
         from datetime import date
         ids = [i.strip() for i in args.pautas.split(",")]
-        for p in instagram.carrossel_pautas(args.assinatura, ids, date.today().strftime("%d/%m/%Y")):
+        hoje = date.today().strftime("%d/%m/%Y")
+        gerados = (instagram.carrossel_pauta(args.assinatura, ids[0], hoje) if len(ids) == 1  # uma pauta: post completo
+                   else instagram.carrossel_pautas(args.assinatura, ids, hoje))               # várias: comparativo
+        for p in gerados:
             print(" ", p.relative_to(config.RAIZ))
         return
     candidatos, _ = montar()

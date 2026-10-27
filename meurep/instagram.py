@@ -259,6 +259,123 @@ def carrossel_pautas(assinatura: str, ids: list[str], data_ref: str) -> list[Pat
     return saidas
 
 
+FALTA_PEC = {  # o que ainda falta, a partir de cada etapa (texto para o slide "onde está")
+    "apresentacao": "Ir às comissões, ter relator e parecer, e depois passar pelas votações abaixo.",
+    "comissoes_ini": "Ter relator e parecer aprovado na comissão; depois 2 turnos no Plenário com 3/5 dos votos, "
+                     "e tudo de novo na outra Casa.",
+    "plenario_ini": "Concluir os 2 turnos no Plenário com 3/5 dos votos e repetir o processo na outra Casa.",
+    "comissoes_rev": "Passar pelas comissões e pelos 2 turnos no Plenário da outra Casa.",
+    "plenario_rev": "Concluir os 2 turnos na outra Casa; se o texto mudar, a parte alterada volta.",
+    "promulgacao": "Ser promulgada pelas Mesas da Câmara e do Senado.",
+}
+
+
+def carrossel_pauta(assinatura: str, pid: str, data_ref: str) -> list[Path]:
+    """Carrossel de uma pauta em andamento: o que muda, onde está, quem assinou, debate e como acompanhar."""
+    import json
+    from collections import Counter
+    from datetime import date
+    p = json.loads((config.SAIDA / "dados" / "pauta" / f"{pid}.json").read_text(encoding="utf-8"))
+    total, saidas, pasta = 6, [], f"pautas/{pid}"
+    ident = p["identificacao"]
+
+    # 1 · capa
+    img, d, y = _slide(1, total, f"{ident}: {p['titulo'].lower()}", assinatura)
+    d.text((64, 150), "PAUTA EM ACOMPANHAMENTO", font=fonte(28, True), fill=ROXO)
+    y = _texto(d, y, f"Proposta apresentada no {p['casa_iniciadora']} em {_data_br(p['apresentacao'])}. "
+                     "Veja o que muda, quem assinou e em que etapa está.", 40, TINTA_2)
+    if p["tramitando"] and p.get("desde"):
+        dias = (date.fromisoformat(data_ref[6:] + "-" + data_ref[3:5] + "-" + data_ref[:2])
+                - date.fromisoformat(p["desde"][:10])).days
+        y += 50
+        d.rounded_rectangle((64, y, 1016, y + 260), 24, fill=(255, 237, 213))
+        d.text((100, y + 34), "SITUAÇÃO EM " + data_ref, font=fonte(26, True), fill=(154, 52, 18))
+        d.text((100, y + 74), f"Há {dias} dias", font=fonte(64, True), fill=TINTA)
+        _texto(d, y + 156, p["situacao"].lower(), 34, TINTA, 880, 100, True, 1)
+        _texto(d, y + 202, p["local"] or "", 28, TINTA_2, 880, 100, False, 1)
+    triangulo(d, 540, A - 380, 120)
+    d.text((1016, A - 160), "arraste →", font=fonte(32, True), fill=ROXO, anchor="ra")
+    saidas.append(_salvar(img, f"{pasta}/01-capa.png"))
+
+    # 2 · o que muda
+    img, d, y = _slide(2, total, "O que a proposta muda", assinatura)
+    for ponto in p.get("pontos") or []:
+        d.ellipse((70, y + 14, 88, y + 32), fill=ROXO)
+        y = _texto(d, y, ponto, 38, TINTA, 900, 110, False, 3) + 20
+    if p.get("contexto"):
+        y += 30
+        d.text((64, y), "CONTEXTO", font=fonte(28, True), fill=ROXO)
+        y = _texto(d, y + 46, p["contexto"], 32, TINTA_2, 952, 64, False, 7)
+    fontes_txt = " · ".join(dict.fromkeys(f["veiculo"] for f in (p.get("resumo_fontes") or []) + (p.get("contexto_fontes") or [])[:1]))
+    d.text((64, A - 140), f"Fontes: {fontes_txt}", font=fonte(24), fill=TINTA_2)
+    saidas.append(_salvar(img, f"{pasta}/02-o-que-muda.png"))
+
+    # 3 · onde está
+    img, d, y = _slide(3, total, "Onde está agora", assinatura)
+    d.rounded_rectangle((64, y, 1016, y + 170), 20, fill=(255, 237, 213))
+    d.rectangle((64, y, 76, y + 170), fill=(154, 52, 18))
+    _texto(d, y + 30, p["situacao"], 40, TINTA, 880, 104, True, 1)
+    _texto(d, y + 92, f"{p['local'] or ''} · desde {_data_br(p['desde'])}", 28, TINTA_2, 880, 104, False, 2)
+    y += 230
+    y = _percurso(d, y + 60, p["etapas"]) + 30
+    if p["etapa_atual"] in FALTA_PEC and p["tipo"] == "PEC":
+        d.text((64, y), "O QUE AINDA FALTA", font=fonte(28, True), fill=ROXO)
+        _texto(d, y + 46, FALTA_PEC[p["etapa_atual"]], 34, TINTA, 952, 64, False, 4)
+    d.text((64, A - 140), f"Situação em {data_ref}. Fonte: dados abertos do Senado e da Câmara.", font=fonte(24), fill=TINTA_2)
+    saidas.append(_salvar(img, f"{pasta}/03-onde-esta.png"))
+
+    # 4 · quem assinou
+    autores = p["autores"]
+    cargos = {(a.get("cargo") or "").lower()[:7] for a in autores}
+    quem = ("senador" if cargos == {"senador"} else "deputado" if cargos == {"deputad"} else "parlamentar")
+    plural = {"senador": "senadores", "deputado": "deputados", "parlamentar": "parlamentares"}[quem]
+    img, d, y = _slide(4, total, f"Quem assinou: {len(autores)} {quem if len(autores) == 1 else plural}", assinatura)
+    partidos = Counter(a["partido"] for a in autores if a.get("partido")).most_common()
+    if partidos:
+        maior = partidos[0][1]
+        for sigla, n in partidos:
+            d.text((64, y), sigla, font=fonte(26, True), fill=TINTA)
+            d.rounded_rectangle((320, y + 4, 320 + int(600 * n / maior), y + 32), 8, fill=ROXO)
+            d.text((332 + int(600 * n / maior), y + 1), str(n), font=fonte(26, True), fill=TINTA)
+            y += 40
+        y += 22
+    f = fonte(22)
+    col_w, linhas = 476, (len(autores) + 1) // 2
+    for i, a in enumerate(autores):
+        x, yy = 64 + (i // linhas) * col_w, y + (i % linhas) * 28
+        nome = f"{a['nome']} ({a['partido']}-{a['uf']})" if a.get("uf") else a["nome"]
+        d.text((x, yy), _quebrar(d, nome, f, col_w - 12, 1)[0], font=f, fill=TINTA_2)
+    d.text((64, A - 140), "Fonte: autoria registrada no Senado Federal (dados abertos).", font=fonte(24), fill=TINTA_2)
+    saidas.append(_salvar(img, f"{pasta}/04-quem-assinou.png"))
+
+    # 5 · debate (mesmo espaço para cada lado, sempre com quem disse)
+    img, d, y = _slide(5, total, "O debate", assinatura)
+    y = _texto(d, y - 10, "Argumentos atribuídos a quem os defende. O projeto não toma lado.", 30, TINTA_2) + 20
+    for chave, rotulo, cor in (("a_favor", "QUEM DEFENDE", (22, 101, 52)), ("contra", "QUEM CRITICA", (153, 27, 27))):
+        d.text((64, y), rotulo, font=fonte(28, True), fill=cor)
+        y += 46
+        for a in (p.get("debate") or {}).get(chave, []):
+            d.rectangle((64, y + 4, 70, y + 104), fill=cor)
+            y = _texto(d, y, a["quem"], 30, TINTA, 920, 90, True, 1)
+            y = _texto(d, y, a["argumento"], 28, TINTA_2, 920, 90, False, 3) + 18
+        y += 16
+    saidas.append(_salvar(img, f"{pasta}/05-debate.png"))
+
+    # 6 · como acompanhar
+    img, d, y = _slide(6, total, "Como acompanhar", assinatura)
+    _itens(d, y + 10, [
+        ("O percurso atualiza sozinho", "No site, cada etapa vem direto dos dados oficiais da Câmara e do Senado."),
+        ("Veja quem assinou", "A lista completa de autores e os dossiês dos seus representantes."),
+        ("Placar de cada votação", "Quando a proposta for votada, o resultado aparece no percurso."),
+        ("Fontes dos dois lados", "Resumo, contexto e debate sempre com link para conferir."),
+    ], numerado=True)
+    d.rounded_rectangle((64, A - 330, 1016, A - 190), 24, fill=ROXO)
+    d.text((540, A - 288), f"Acompanhe a {ident} no site", font=fonte(38, True), fill="white", anchor="mm")
+    d.text((540, A - 234), "Link na bio · seção Pautas", font=fonte(30), fill="white", anchor="mm")
+    saidas.append(_salvar(img, f"{pasta}/06-como-acompanhar.png"))
+    return saidas
+
+
 def _salvar(img: Image.Image, nome: str) -> Path:
     destino = SAIDA / nome
     destino.parent.mkdir(parents=True, exist_ok=True)
