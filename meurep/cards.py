@@ -278,7 +278,7 @@ def card_comparacao(a: dict, b: dict, destino: Path, site_url: str = "", data_2t
 def gerar_segundo_turno(candidatos: list[dict], site_url: str = "") -> list[Path]:
     grupos: dict[tuple, list[dict]] = {}
     for c in candidatos:
-        if c["resultado"] == "segundo_turno":
+        if c["resultado"] == "segundo_turno" or c.get("turno2"):
             grupos.setdefault((c["uf"], c["cargo"]), []).append(c)
     saidas = []
     for (uf, cargo), g in sorted(grupos.items(), key=lambda kv: (config.ORDEM_CARGOS.index(kv[0][1]), kv[0][0])):

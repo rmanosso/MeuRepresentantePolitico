@@ -26,6 +26,21 @@ URL_BENS = f"{TSE_CDN}/bem_candidato/bem_candidato_{ANO}.zip"
 # Códigos das eleições de 2026 no TSE (resultados.tse.jus.br/oficial/comum/config/ele-c.json)
 CD_ELEICAO_FEDERAL = "6257"    # Presidente
 CD_ELEICAO_ESTADUAL = "6259"   # Governador, Senador, Deputados
+CD_ELEICAO_FEDERAL_T2 = "6258"   # Presidente, 2º turno ("cdt2" no ele-c.json)
+CD_ELEICAO_ESTADUAL_T2 = "6260"  # Governador, 2º turno
+
+# Disputas que se resolveram fora do caminho normal, explicadas na página do 2º turno.
+NOTAS_2T = [
+    {"texto": "No Rio de Janeiro não houve 2º turno. O TSE manteve o indeferimento da candidatura de Anthony "
+              "Garotinho e os votos dele foram anulados. Na retotalização de 10/10, Douglas Ruas passou a ter "
+              "50,88% dos votos válidos e o TRE-RJ o proclamou eleito no 1º turno em 15/10.",
+     "fontes": [
+         {"titulo": "TRE-RJ proclama Douglas Ruas eleito para o governo do Rio de Janeiro", "veiculo": "Agência Brasil",
+          "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tre-rj-proclama-douglas-ruas-eleito-para-o-governo-do-rio-de-janeiro"},
+         {"titulo": "Votos de Garotinho são anulados e Douglas Ruas é eleito no 1º turno no RJ", "veiculo": "Poder360",
+          "url": "https://www.poder360.com.br/poder-eleicoes-2026/votos-de-garotinho-sao-anulados-e-douglas-ruas-e-eleito-no-1o-turno-no-rj/"},
+     ]},
+]
 SQ_ELEICAO_DIVULGACAND = "20322002026"
 
 URL_FOTO = "https://resultados.tse.jus.br/oficial/ele{ano}/{cd}/fotos/{uf}/{sq}.jpeg"

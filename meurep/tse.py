@@ -162,13 +162,19 @@ def importar(forcar: bool = False) -> dict:
                 ano=config.ANO, sqele=config.SQ_ELEICAO_DIVULGACAND, uf=uf, sq=sq),
         }
         r = totalizacao.get(sq)
-        if r:
+        if r and "votos" in r:
             c["votos"], c["percentual"] = r["votos"], r["percentual"]
             c["totalizacao"] = {k: r[k] for k in ("totalizacao", "atualizado", "fonte")}
-            if c["resultado"] == "aguardando" and "resultado" in r:
+            if "resultado" in r and (c["resultado"] == "aguardando" or r["situacao_tse"]):
+                # a totalização é mais recente que o cadastro (ex.: retotalização que decidiu no 1º turno)
                 c["resultado"] = r["resultado"]
                 c["resultado_tse"] = r["situacao_tse"] or ("2º turno (resultado matematicamente definido)"
                                                            if r["resultado"] == "segundo_turno" else None)
+        if r and r.get("turno2"):
+            t2 = r["turno2"]
+            c["turno2"] = {k: t2[k] for k in ("votos", "percentual", "totalizacao", "atualizado", "fonte")}
+            if "resultado" in t2:  # o 2º turno define o resultado final
+                c["resultado"], c["resultado_tse"] = t2["resultado"], t2["situacao_tse"]
         (vinculados if cargo in config.CARGOS_VINCULADOS else titulares).append(c)
 
     titulares = _sem_substituidos(titulares, "titulares")

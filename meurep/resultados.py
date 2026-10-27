@@ -27,6 +27,13 @@ def _arquivos():
             yield int(config.CD_ELEICAO_ESTADUAL), uf.lower(), cargo
 
 
+def _arquivos_t2():
+    """2º turno: só existe arquivo onde houve disputa (os demais dão 404 e são ignorados)."""
+    yield int(config.CD_ELEICAO_FEDERAL_T2), "br", 1
+    for uf in config.UFS:
+        yield int(config.CD_ELEICAO_ESTADUAL_T2), uf.lower(), 3
+
+
 def _num(s: str | None) -> float | None:
     return float(s.replace(",", ".")) if s else None
 
@@ -87,4 +94,21 @@ def importar() -> dict[str, dict]:
     com_sit = sum(1 for r in saida.values() if "resultado" in r)
     print(f"  {len(arquivos) - falhas}/{len(arquivos)} arquivos, {len(saida)} candidatos com votos, "
           f"{com_sit} com situação definida")
+
+    # 2º turno: guardado à parte (os votos do 1º turno continuam em "votos"/"percentual").
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        arquivos_t2 = [a for a in ex.map(lambda a: _baixar(*a), _arquivos_t2()) if a[2] is not None]
+    for cargo, url, d in arquivos_t2:
+        finalizada = d.get("tf") == "s"
+        atualizado = f"{d.get('dt') or d.get('dg')} {d.get('ht') or d.get('hg')}"
+        for c in (c for cg in d.get("carg", []) for a in cg.get("agr", [])
+                  for p in a.get("par", []) for c in p.get("cand", [])):
+            st = (c.get("st") or "").strip()
+            t2 = {"votos": int(c["vap"]) if c.get("vap") else None, "percentual": _num(c.get("pvap")),
+                  "situacao_tse": st or None, "totalizacao": "finalizada" if finalizada else "em andamento",
+                  "atualizado": atualizado, "fonte": url}
+            if st:
+                t2["resultado"] = config.RESULTADOS.get(st.upper(), "aguardando")
+            saida.setdefault(c["sqcand"], {})["turno2"] = t2
+    print(f"  2º turno: {len(arquivos_t2)} disputa(s) com arquivo de totalização")
     return saida

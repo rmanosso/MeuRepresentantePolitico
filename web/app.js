@@ -85,7 +85,10 @@ function telaInicio() {
   const m = estado.meta;
   const p = m.pilares;
   const aviso = m.resultados_disponiveis
-    ? `<a class="destaque-2t" href="#/2turno"><span>2º turno · ${esc(m.data_segundo_turno_txt)}</span>
+    ? m.segundo_turno_finalizado
+      ? `<a class="destaque-2t" href="#/2turno"><span>Resultado do 2º turno · ${esc(m.data_segundo_turno_txt)}</span>
+         <strong>Veja quem venceu para a Presidência e os governos estaduais</strong><em>Ver resultados →</em></a>`
+      : `<a class="destaque-2t" href="#/2turno"><span>2º turno · ${esc(m.data_segundo_turno_txt)}</span>
          <strong>Compare lado a lado os candidatos à Presidência e aos governos</strong><em>Ver disputas →</em></a>`
     : `<div class="aviso">Os resultados oficiais do 1º turno ainda não entraram nos dados do TSE.
        Todas as candidaturas estão listadas; os selos de <b>eleito</b> e <b>2º turno</b> aparecem na próxima atualização.</div>`;
@@ -291,7 +294,9 @@ async function telaCandidato(uf, id) {
           <p>${selo(c.resultado)} ${c.resultado_tse ? `<small>TSE: ${esc(c.resultado_tse)}</small>` : ""}</p>
           ${c.votos != null ? `<p class="votacao"><b>${c.votos.toLocaleString("pt-BR")}</b> votos (${pct(c.percentual)} dos válidos) no 1º turno
             <small>· totalização ${esc(c.totalizacao?.totalizacao || "")}, ${esc(c.totalizacao?.atualizado || "")}</small></p>` : ""}
-          ${c.resultado === "segundo_turno" && adversario(c) ? `<p><a class="botao" href="#/comparar/${esc(c.id)}/${esc(adversario(c).id)}">Comparar com ${esc(adversario(c).nome_urna)} →</a></p>` : ""}
+          ${c.turno2?.votos != null ? `<p class="votacao"><b>${c.turno2.votos.toLocaleString("pt-BR")}</b> votos (${pct(c.turno2.percentual)} dos válidos) no 2º turno
+            <small>· totalização ${esc(c.turno2.totalizacao)}, ${esc(c.turno2.atualizado)}</small></p>` : ""}
+          ${foi2t(c) && adversario(c) ? `<p><a class="botao" href="#/comparar/${esc(c.id)}/${esc(adversario(c).id)}">Comparar com ${esc(adversario(c).nome_urna)} →</a></p>` : ""}
           ${c.resultado_fontes ? `<p class="fontes-inline">Resultado informado por: ${fontes(c.resultado_fontes)}</p>` : ""}
           ${c.chapa ? `<p class="chapa">${c.chapa.map((v) => `${esc(CARGOS[v.cargo] || v.cargo)}: <b>${esc(v.nome_urna)}</b> (${esc(v.partido)})`).join(" · ")}</p>` : ""}
           ${c.substitui ? `<p class="chapa">Número registrado antes por: ${esc(c.substitui.join(", "))} (substituição de candidatura, segundo o TSE)</p>` : ""}
@@ -485,42 +490,53 @@ function telaNaoEncontrada() {
 
 const pct = (v) => `${v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
 
+const foi2t = (c) => !!c.turno2 || c.resultado === "segundo_turno";
+const votos2t = (c) => c.turno2?.votos ?? c.votos ?? 0;
+
 function disputas2t() {
   const grupos = {};
-  for (const c of estado.nacional.filter((x) => x.resultado === "segundo_turno")) {
+  for (const c of estado.nacional.filter(foi2t)) {
     (grupos[`${c.uf}|${c.cargo}`] ||= []).push(c);
   }
   return Object.values(grupos)
-    .map((g) => g.sort((a, b) => (b.votos || 0) - (a.votos || 0)))
+    .map((g) => g.sort((a, b) => votos2t(b) - votos2t(a)))
     .sort((a, b) => estado.meta.ordem_cargos.indexOf(a[0].cargo) - estado.meta.ordem_cargos.indexOf(b[0].cargo)
       || (estado.meta.ufs[a[0].uf] || "").localeCompare(estado.meta.ufs[b[0].uf] || ""));
 }
 
 function adversario(c) {
-  return estado.nacional?.find((x) => x.id !== c.id && x.uf === c.uf && x.cargo === c.cargo && x.resultado === "segundo_turno");
+  return foi2t(c) && estado.nacional?.find((x) => x.id !== c.id && x.uf === c.uf && x.cargo === c.cargo && foi2t(x));
 }
+
+const notas2t = () => (estado.meta.notas_2t || []).map((n) => `<p class="aviso">${esc(n.texto)}
+  <small>Fontes: ${n.fontes.map((f) => `<a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(f.veiculo)}</a>`).join(" · ")}</small></p>`).join("");
 
 async function tela2turno() {
   await carregarNacional();
   const m = estado.meta;
   document.title = "2º turno · Meu Representante";
   const lista = disputas2t();
+  const fim = m.segundo_turno_finalizado;
   app.innerHTML = `
     <div class="cab-pilar" style="--cor:${m.pilares.executivo.cor}"><a href="#/" class="voltar">← Início</a>
-      <h1>2º turno · ${esc(m.data_segundo_turno_txt)}</h1>
-      <p>${lista.length} disputa(s) definida(s) no 1º turno. Escolha uma para comparar propostas, trajetória e conduta lado a lado.</p></div>
+      <h1>${fim ? "Resultado do 2º turno" : "2º turno"} · ${esc(m.data_segundo_turno_txt)}</h1>
+      <p>${fim ? `${lista.length} disputa(s) decidida(s) no 2º turno. Veja quem venceu e compare propostas, trajetória e conduta lado a lado.`
+        : `${lista.length} disputa(s) definida(s) no 1º turno. Escolha uma para comparar propostas, trajetória e conduta lado a lado.`}</p></div>
     ${lista.length ? `<div class="disputas">${lista.map((g) => `
       <a class="disputa" href="#/comparar/${esc(g[0].id)}/${esc(g[1]?.id || "")}">
         <span class="disputa-cargo">${esc(CARGOS[g[0].cargo])} · ${esc(g[0].uf === "BR" ? "Brasil" : m.ufs[g[0].uf])}</span>
         <span class="disputa-par">${g.slice(0, 2).map((c) => `
-          <span class="disputa-cand">${imgFoto(c)}<strong>${esc(c.nome_urna)}</strong>
-          <span>${esc(c.partido)}${c.percentual != null ? " · " + pct(c.percentual) : ""}</span>
+          <span class="disputa-cand ${c.turno2 && c.resultado !== "eleito" ? "disputa-perdeu" : ""}">${imgFoto(c)}<strong>${esc(c.nome_urna)}</strong>
+          <span>${esc(c.partido)}${c.turno2?.percentual != null ? " · " + pct(c.turno2.percentual)
+            : c.percentual != null ? " · " + pct(c.percentual) : ""}</span>
+          ${c.turno2 && c.resultado === "eleito" ? selo("eleito") : ""}
           ${c.dossie ? `<span class="selo selo-dossie">Dossiê</span>` : ""}</span>`).join('<span class="versus">vs</span>')}
         </span>
       </a>`).join("")}</div>`
     : `<p class="vazio">Os candidatos ao 2º turno ainda não foram definidos nos dados do TSE.</p>`}
-    <p class="dica">Votação do 1º turno conforme a totalização do TSE. Disputas ainda em apuração aparecem quando o resultado
-      estiver definido.</p>`;
+    ${notas2t()}
+    <p class="dica">${fim ? "Percentuais dos votos válidos no 2º turno, conforme a totalização do TSE. A votação do 1º turno aparece na comparação."
+      : "Votação do 1º turno conforme a totalização do TSE. Disputas ainda em apuração aparecem quando o resultado estiver definido."}</p>`;
 }
 
 async function telaComparar(idA, idB) {
@@ -545,7 +561,9 @@ async function telaComparar(idA, idB) {
       <div class="cmp-cab">${par.map((c) => `
         <a class="cmp-cand" href="#/c/${esc(c.uf)}/${esc(c.id)}">${imgFoto(c, "foto foto-grande")}
           <strong>${esc(c.nome_urna)}</strong><span>${esc(c.partido)} · nº ${esc(c.numero)}</span>
-          ${c.percentual != null ? `<span class="cmp-pct">${pct(c.percentual)}</span><small>${c.votos.toLocaleString("pt-BR")} votos no 1º turno</small>` : ""}
+          ${c.turno2?.percentual != null ? `${c.resultado === "eleito" ? selo("eleito") : ""}<span class="cmp-pct">${pct(c.turno2.percentual)}</span>
+            <small>${c.turno2.votos.toLocaleString("pt-BR")} votos no 2º turno</small>` : ""}
+          ${c.percentual != null ? `${c.turno2 ? "" : `<span class="cmp-pct">${pct(c.percentual)}</span>`}<small>${c.votos.toLocaleString("pt-BR")} votos (${pct(c.percentual)}) no 1º turno</small>` : ""}
           ${c.chapa?.length ? `<small>${c.chapa.map((v) => `${esc(CARGOS[v.cargo] || v.cargo)}: ${esc(v.nome_urna)} (${esc(v.partido)})`).join("<br>")}</small>` : ""}
         </a>`).join("")}</div>
 

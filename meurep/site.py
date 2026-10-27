@@ -50,8 +50,9 @@ def gerar(candidatos: list[dict], gerado_em_tse: str) -> None:
         deps = [c for c in candidatos if c["pilar"] == "camara" and c["uf"] == uf]
         _escrever(dados / "uf" / f"{uf}.json", [_compacto(c) for c in deps])
 
-    datas = [datetime.strptime(c["totalizacao"]["atualizado"], "%d/%m/%Y %H:%M:%S")
-             for c in candidatos if c.get("totalizacao", {}).get("atualizado", "").count(":") == 2]
+    datas = [datetime.strptime(t["atualizado"], "%d/%m/%Y %H:%M:%S")
+             for c in candidatos for t in (c.get("totalizacao"), c.get("turno2"))
+             if t and t.get("atualizado", "").count(":") == 2]
     contagem = Counter((c["uf"], c["cargo"], c["resultado"]) for c in candidatos)
     meta = {
         "ano": config.ANO,
@@ -72,6 +73,8 @@ def gerar(candidatos: list[dict], gerado_em_tse: str) -> None:
         "total": len(candidatos),
         "com_dossie": sum(1 for c in candidatos if "dossie" in c),
         "resultados_disponiveis": any(c["resultado"] != "aguardando" for c in candidatos),
+        "segundo_turno_finalizado": any(c.get("turno2", {}).get("totalizacao") == "finalizada" for c in candidatos),
+        "notas_2t": config.NOTAS_2T,
         "contagem": [[uf, cargo, res, n] for (uf, cargo, res), n in sorted(contagem.items())],
     }
     _escrever(dados / "meta.json", meta)
