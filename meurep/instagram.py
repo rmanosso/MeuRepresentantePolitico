@@ -189,7 +189,7 @@ def _percurso(d: ImageDraw.ImageDraw, y: int, etapas: list[dict]) -> int:
         casa = e["casa_nome"] + (" · agora" if e["estado"] == "atual" else "")
         yc = y + r + 24 + (64 if "\n" in nome else 34)
         d.text((x, yc), casa, font=fonte(23, e["estado"] == "atual"), fill=cor if e["estado"] == "atual" else TINTA_2, anchor="ma")
-        votos = sorted((v["placar"] for v in e["eventos"] if v.get("placar")), key=lambda v: v["turno"] != "primeiro")
+        votos = sorted((p for v in e["eventos"] for p in v.get("placares", [])), key=lambda p: p["turno"] != "primeiro")
         for k, v in enumerate(votos):
             d.text((x, yc + 34 + 28 * k), f"{v['sim']} a {v['nao']}", font=fonte(23, True), fill=(22, 101, 52), anchor="ma")
     return y + r + 160

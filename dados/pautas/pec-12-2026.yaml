@@ -7,7 +7,7 @@ senado_id: 9055580        # id do processo na API do Senado (dadosabertos/proces
 camara_id:                # id na API da Câmara, quando chegar lá
 titulo: Jornada de trabalho por hora
 tema: Trabalho e emprego
-atualizado_em: '2026-10-07'
+atualizado_em: '2026-10-27'
 relacionadas: [pec-221-2019]
 resumo: Altera o artigo 7º da Constituição para permitir que o empregado escolha entre a jornada comum da CLT e um
   regime flexível baseado em horas trabalhadas, com remuneração, férias, 13º salário e FGTS proporcionais às horas.
@@ -21,9 +21,13 @@ resumo_fontes:
 - titulo: Rogerio Marinho propõe PEC que flexibiliza jornada de trabalho
   url: https://www12.senado.leg.br/noticias/materias/2026/05/28/rogerio-marinho-propoe-pec-que-flexibiliza-jornada-de-trabalho
   veiculo: Agência Senado
-contexto: Tramita no Senado em paralelo à PEC que reduz a jornada e acaba com a escala 6x1, já aprovada pela Câmara.
-  Defensores e críticos apresentam as duas propostas como alternativas.
+contexto: Foi apresentada como alternativa à PEC 221/2019, que reduz a jornada para 40 horas e acaba com a escala 6x1.
+  A PEC 221/2019 foi aprovada e promulgada em 16/10/2026 como Emenda Constitucional nº 141. A PEC 12/2026 segue em
+  tramitação e ainda pode ser analisada pelo Senado.
 contexto_fontes:
+- titulo: Congresso promulga o fim da escala 6x1 e aposentadoria de agentes de saúde
+  url: https://www12.senado.leg.br/noticias/materias/2026/10/16/congresso-promulga-o-fim-da-escala-6x1-e-aposentadoria-de-agentes-de-saude
+  veiculo: Agência Senado
 - titulo: Redução da jornada, CUT e centrais rebatem ofensiva patronal
   url: https://www.cut.org.br/noticias/reducao-da-jornada-cut-e-centrais-rebatem-ofensiva-patronal-1caa
   veiculo: CUT

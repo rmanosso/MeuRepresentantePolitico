@@ -626,12 +626,14 @@ const diasDesde = (iso) => Math.max(0, Math.round((Date.now() - new Date(iso + "
 const dias = (n) => `${n} ${n === 1 ? "dia" : "dias"}`;
 const fontesLinks = (fs) => (fs || []).map((f) =>
   `<a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(f.veiculo || f.titulo)}</a>`).join(" · ");
-const placarTxt = (v) => `${v.placar.turno === "primeiro" || v.placar.turno === "1" ? "1º" : "2º"} turno: ${v.placar.sim} a ${v.placar.nao}`;
-const placares = (evs) => evs.filter((v) => v.placar).sort((a, b) => (a.data + a.placar.turno).localeCompare(b.data + b.placar.turno));
+const placarTxt = (p) => `${p.turno === "primeiro" ? "1º" : "2º"} turno: ${p.sim} a ${p.nao}`;
+// todos os placares de uma etapa, em ordem (data, depois 1º turno antes do 2º)
+const placares = (evs) => evs.flatMap((v) => (v.placares || []).map((p) => ({ ...p, data: v.data })))
+  .sort((a, b) => (a.data + a.turno).localeCompare(b.data + b.turno));
 
 function listaEventos(evs, limite = 12) {
   const li = (v) => `<li><time>${dataBR(v.data)}</time> <b>${esc(v.orgao || "")}</b> ${esc(v.texto)}${
-    v.placar ? ` <span class="placar">${v.placar.sim} sim · ${v.placar.nao} não</span>` : ""}</li>`;
+    (v.placares || []).map((p) => ` <span class="placar">${placarTxt(p)}</span>`).join("")}</li>`;
   if (evs.length <= limite) return `<ol class="historico">${evs.map(li).join("")}</ol>`;
   return `<ol class="historico">${evs.slice(0, limite).map(li).join("")}</ol>
     <details class="mais-eventos"><summary>Ver os outros ${evs.length - limite} eventos</summary>
@@ -652,13 +654,17 @@ async function telaPautas() {
       Entram propostas em votação ou com urgência aprovada, sempre com o mesmo critério para todos os lados.</p>`;
 }
 
+// "Emenda Constitucional nº 141 de 16/10/2026" -> "Emenda Constitucional nº 141/2026"
+const normaCurta = (n) => String(n || "").replace(/ de \d{2}\/\d{2}\/(\d{4})$/, "/$1");
+
 function cartaoPauta(p) {
   return `
     <a class="pauta-cartao" href="#/pauta/${esc(p.id)}">
       <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")}</span>
       <strong>${esc(p.titulo)}</strong>
       <span class="mini-percurso" aria-hidden="true">${p.progresso.map((e) => `<i class="mp-${e}"></i>`).join("")}</span>
-      <span class="pauta-situacao">${p.tramitando ? "" : "Encerrada · "}${esc(p.situacao)}${p.local ? ` · ${esc(p.local)}` : ""}</span>
+      <span class="pauta-situacao">${p.aprovada ? `<b class="pauta-aprovada">Aprovada</b> · ${esc(normaCurta(p.norma))}`
+        : `${p.tramitando ? "" : "Encerrada · "}${esc(p.situacao)}${p.local ? ` · ${esc(p.local)}` : ""}`}</span>
     </a>`;
 }
 
@@ -698,11 +704,17 @@ async function telaPauta(id) {
     <header class="pauta-topo">
       <span class="pauta-id">${esc(p.identificacao)} · ${esc(p.tema || "")} · começou ${p.casa_iniciadora === "Câmara" ? "na" : "no"} ${esc(p.casa_iniciadora)}</span>
       <h1>${esc(p.titulo)}</h1>
+      ${p.aprovada ? `
+      <div class="agora agora-aprovada">
+        <span>Aprovada · virou regra</span>
+        <strong>${esc(normaCurta(p.norma))}</strong>
+        <small>Promulgada em ${dataBR(p.norma_data)}. Agora faz parte ${p.tipo === "PEC" ? "da Constituição" : "da legislação"}.</small>
+      </div>` : `
       <div class="agora ${p.tramitando ? "" : "agora-encerrada"}">
         <span>${p.tramitando ? "Onde está agora" : "Tramitação encerrada"}</span>
         <strong>${esc(p.situacao)}</strong>
         <small>${esc(p.local || "")}${p.desde ? ` · desde ${dataBR(p.desde)} (${dias(diasDesde(p.desde))})` : ""}</small>${p.eventos.length ? `<small class="ultimo">Último registro oficial, ${dataBR(p.eventos[0].data)}: ${esc(p.eventos[0].texto)}</small>` : ""}
-      </div>
+      </div>`}
     </header>
 
     <section class="bloco" aria-labelledby="t-percurso">
@@ -718,7 +730,7 @@ async function telaPauta(id) {
               <span class="ponto">${e.estado === "feita" ? "✓" : i + 1}</span>
               <span class="estacao-nome">${esc(e.nome)}</span>
               <span class="estacao-casa">${esc(e.casa_nome)}${e.estado === "atual" ? " · agora" : ""}</span>
-              ${placares(e.eventos).length ? `<span class="estacao-placar">${placares(e.eventos).map((v) => `${v.placar.sim} a ${v.placar.nao}`).join(" · ")}</span>` : ""}
+              ${placares(e.eventos).length ? `<span class="estacao-placar">${placares(e.eventos).map((p) => `${p.sim} a ${p.nao}`).join(" · ")}</span>` : ""}
             </button>
           </li>`).join("")}
         <li class="estacao estacao-ramo" style="--cor:var(--cor-judiciario)">
@@ -763,7 +775,7 @@ async function telaPauta(id) {
     detalhe.style.setProperty("--cor", i === "stf" ? "var(--cor-judiciario)" : corPoder(e.poder));
     const votos = placares(e.eventos);
     detalhe.innerHTML = `<span class="etapa-rotulo">${rotulo}</span><h3>${esc(e.nome)} · ${esc(e.casa_nome || "")}</h3><p>${esc(e.explica)}</p>
-      ${votos.length ? `<p class="votos">${votos.map((v) => `<span class="placar">${placarTxt(v)}</span>`).join(" ")}</p>` : ""}
+      ${votos.length ? `<p class="votos">${votos.map((p) => `<span class="placar">${placarTxt(p)}</span>`).join(" ")}</p>` : ""}
       ${e.eventos.length ? listaEventos(e.eventos) : e.estado === "futura" ? `<p class="nota">Ainda não chegou aqui.</p>` : ""}`;
     app.querySelectorAll(".percurso button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.i === String(i))));
   };

@@ -366,3 +366,6 @@ main { max-width: 1100px; margin: 0 auto; padding: 16px; min-height: 70vh; outli
 .agora .ultimo { margin-top: 6px; color: var(--tinta); }
 .disputa-perdeu { opacity: .62; }
 .disputa-perdeu img { filter: grayscale(.6); }
+.agora-aprovada { background: var(--eleito-fundo); border-left-color: var(--eleito); }
+.agora-aprovada span { color: var(--eleito); }
+.pauta-aprovada { color: var(--eleito); }

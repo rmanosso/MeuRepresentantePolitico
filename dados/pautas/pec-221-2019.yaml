@@ -6,7 +6,7 @@ camara_id: 2233802
 senado_id: 9056435
 titulo: Fim da escala 6x1 e jornada de 40 horas
 tema: Trabalho e emprego
-atualizado_em: '2026-10-07'
+atualizado_em: '2026-10-27'
 relacionadas: [pec-12-2026]
 resumo: Reduz a jornada máxima de 44 para 40 horas semanais, com limite de 8 horas por dia e dois dias de descanso
   remunerado por semana, um preferencialmente no domingo, sem redução de salário. Na transição, a jornada cai para 42
@@ -16,8 +16,11 @@ resumo: Reduz a jornada máxima de 44 para 40 horas semanais, com limite de 8 ho
 pontos:
 - Jornada máxima cai de 44 para 40 horas semanais
 - Dois dias de descanso por semana, sem redução de salário
-- 'Transição: 42 horas após 2 meses e 40 horas 12 meses depois'
+- 'Transição: 42 horas a partir de 15/12/2026 e 40 horas 12 meses depois'
 resumo_fontes:
+- titulo: Carga máxima de trabalho passará a 42 horas semanais em 15 de dezembro
+  url: https://www12.senado.leg.br/noticias/audios/2026/10/carga-maxima-de-trabalho-passara-a-42-horas-semanais-em-15-de-dezembro
+  veiculo: Agência Senado
 - titulo: Câmara aprova em dois turnos fim da escala 6x1 com jornada máxima de 40 horas semanais
   url: https://www.camara.leg.br/noticias/1277141-camara-aprova-em-dois-turnos-fim-da-escala-6x1-com-jornada-maxima-de-40-horas-semanais/
   veiculo: Agência Câmara
@@ -26,9 +29,13 @@ resumo_fontes:
   veiculo: Agência Senado
 contexto: Reúne a PEC 221/2019, do deputado Reginaldo Lopes (PT-MG), e a PEC 8/2025, da deputada Erika Hilton (PSOL-SP),
   com relatoria de Leo Prates (Republicanos-BA) na Câmara. No Senado, o relator Omar Aziz (PSD-AM) manteve o texto da
-  Câmara e rejeitou as 36 emendas apresentadas na CCJ. A PEC 12/2026, que propõe jornada por hora, tramita no Senado
-  como alternativa defendida pela oposição.
+  Câmara e rejeitou as 36 emendas apresentadas na CCJ. O Senado aprovou o texto em 14/10/2026, por 75 a 1 nos dois
+  turnos, e o Congresso a promulgou em 16/10/2026 como Emenda Constitucional nº 141. A PEC 12/2026, que propõe jornada
+  por hora, continua em tramitação no Senado.
 contexto_fontes:
+- titulo: Congresso promulga o fim da escala 6x1 e aposentadoria de agentes de saúde
+  url: https://www12.senado.leg.br/noticias/materias/2026/10/16/congresso-promulga-o-fim-da-escala-6x1-e-aposentadoria-de-agentes-de-saude
+  veiculo: Agência Senado
 - titulo: Câmara aprova em dois turnos fim da escala 6x1 com jornada máxima de 40 horas semanais
   url: https://www.camara.leg.br/noticias/1277141-camara-aprova-em-dois-turnos-fim-da-escala-6x1-com-jornada-maxima-de-40-horas-semanais/
   veiculo: Agência Câmara

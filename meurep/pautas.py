@@ -106,7 +106,8 @@ def _senado(pid: int) -> dict | None:
         "local": (atual.get("colegiado") or {}).get("nome"),
         "local_sigla": (atual.get("colegiado") or {}).get("sigla"),
         "tramitando": p.get("tramitando") == "Sim",
-        "norma": p.get("normaGerada") or None,
+        "norma": ({"descricao": p["normaGerada"].get("descricao"), "data": p["normaGerada"].get("dataAssinatura")}
+                  if p.get("normaGerada") else None),
         "ementa": (p.get("conteudo") or {}).get("ementa") or doc.get("ementa"),
         "apresentacao": doc.get("dataApresentacao"),
         "autores": [{"nome": a["autor"], "partido": a.get("siglaPartido"), "uf": a.get("uf"),
@@ -135,7 +136,8 @@ def _camara(pid: int) -> dict | None:
         "local": st.get("siglaOrgao"),
         "local_sigla": st.get("siglaOrgao"),
         "tramitando": not ENCERRADA.search(st.get("descricaoSituacao") or ""),
-        "norma": None,
+        "norma": ({"descricao": st.get("despacho"), "data": (st.get("dataHora") or "")[:10]}
+                  if "transformad" in (st.get("descricaoSituacao") or "").lower() else None),
         "ementa": d.get("ementa"),
         "apresentacao": (d.get("dataApresentacao") or "")[:10],
         "autores": [{"nome": a["nome"], "partido": None, "uf": None, "cargo": a.get("tipo")}
@@ -148,7 +150,11 @@ def _camara(pid: int) -> dict | None:
 
 # Órgãos de plenário/mesa: atos administrativos deles herdam a etapa em que a proposta já estava.
 ORGAOS_PLENARIO = {"PLEN", "MESA", "SGM", "CCP", "SLSF", "SEADI"}
-PLACAR = re.compile(r"sim:?\s*(\d+)\s*;?\s*não:?\s*(\d+)", re.I)
+# "aprovada em 1º turno (Sim: 75; Não: 1 ..." — um evento pode trazer os dois turnos; o trecho entre "turno" e
+# "Sim" não pode citar requerimento (para não pegar votações de requerimentos na mesma sessão).
+PLACAR = re.compile(r"(primeiro|segundo|1º|2º) turno((?:(?!turno).){0,160}?)sim:?\s*(\d+)\s*;?\s*não:?\s*(\d+)",
+                    re.I | re.S)
+NORMA = re.compile(r"transformad[ao] (em|na) (norma|emenda|lei)|promulgad", re.I)
 
 
 def _etapa_do_evento(ev: dict, ini: str, tipo: str) -> str | None:
@@ -157,7 +163,7 @@ def _etapa_do_evento(ev: dict, ini: str, tipo: str) -> str | None:
     txt = ev["texto"].lower()
     if tipo != "PEC" and re.search(r"sanção|sancionad|vetad|veto", txt):
         return "vetos" if "derrub" in txt or "manuten" in txt else "sancao"
-    if re.search(r"promulgad", txt):
+    if NORMA.search(txt):
         return "promulgacao" if tipo == "PEC" else "lei"
     lado = "ini" if ev["casa"] == ini else "rev"
     if ev["orgao"] in ORGAOS_PLENARIO:
@@ -179,10 +185,10 @@ def _classificar(eventos: list[dict], ini: str, tipo: str) -> None:
             # primeiro ato na outra Casa abre a fase de comissões dela; senão, segue onde estava
             etapa = f"comissoes_{'ini' if ev['casa'] == ini else 'rev'}" if ev["casa"] != casa_ant else anterior
         ev["etapa"], anterior, casa_ant = etapa, etapa, ev["casa"]
-        m = PLACAR.search(ev["texto"])
-        turno = re.search(r"(primeiro|segundo|1º|2º) turno", ev["texto"], re.I)
-        if m and turno and "requerimento" not in ev["texto"].lower():  # só votações da proposta, não de requerimentos
-            ev["placar"] = {"sim": int(m[1]), "nao": int(m[2]), "turno": turno[1].lower().replace("º", "")}
+        placares = [{"sim": int(m[3]), "nao": int(m[4]), "turno": "primeiro" if m[1].lower() in ("primeiro", "1º") else "segundo"}
+                    for m in PLACAR.finditer(ev["texto"]) if "requerimento" not in m[2].lower()]
+        if placares:
+            ev["placares"] = placares
 
 
 def montar(cfg: dict) -> dict:
@@ -201,7 +207,9 @@ def montar(cfg: dict) -> dict:
     feitas = [ordem.index(ev["etapa"]) for ev in eventos if ev["etapa"] in ordem]
     i_atual = max(feitas, default=0)
     encerrada = not atual_doc["tramitando"] or bool(ENCERRADA.search(atual_doc["situacao"]))
-    if base.get("norma"):
+    # a norma pode aparecer em qualquer das Casas; a descrição do Senado é a mais limpa
+    norma = (fontes["SF"] or {}).get("norma") or (fontes["CD"] or {}).get("norma")
+    if norma:
         i_atual, encerrada = len(ordem) - 1, False
 
     etapas = []
@@ -214,7 +222,7 @@ def montar(cfg: dict) -> dict:
             "estado": "feita" if i < i_atual else ("atual" if i == i_atual else "futura"),
             "eventos": [ev for ev in eventos if ev["etapa"] == e["id"]][::-1],
         })
-    if not encerrada and i_atual == len(ordem) - 1:
+    if norma:
         etapas[-1]["estado"] = "feita"
 
     return {
@@ -228,7 +236,10 @@ def montar(cfg: dict) -> dict:
         "situacao": atual_doc["situacao"],
         "desde": atual_doc["desde"],
         "local": atual_doc["local"],
-        "tramitando": not encerrada,
+        "tramitando": not encerrada and not norma,
+        "aprovada": bool(norma),
+        "norma": norma["descricao"] if norma else None,
+        "norma_data": norma.get("data") if norma else None,
         "sem_sancao": tipo == "PEC",
         "etapa_atual": ordem[i_atual],
         "etapas": etapas,
@@ -257,7 +268,8 @@ def gerar(destino) -> list[dict]:
         (destino / "pauta").mkdir(parents=True, exist_ok=True)
         (destino / "pauta" / f"{p['id']}.json").write_text(json.dumps(p, ensure_ascii=False), encoding="utf-8")
         pautas.append({k: p[k] for k in ("id", "tipo", "identificacao", "titulo", "tema", "resumo", "situacao",
-                                         "desde", "local", "tramitando", "etapa_atual", "casa_iniciadora")}
+                                         "desde", "local", "tramitando", "etapa_atual", "casa_iniciadora",
+                                         "aprovada", "norma")}
                       | {"progresso": [e["estado"] for e in p["etapas"]]})
     (destino / "pautas.json").write_text(json.dumps(pautas, ensure_ascii=False), encoding="utf-8")
     print(f"Pautas: {len(pautas)} acompanhada(s)")
